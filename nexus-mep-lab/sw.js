@@ -1,30 +1,46 @@
-// NEXUS MEP LAB 2.0.0: shared offline runtime for desktop and mobile.
-// The same index.html drives all screens. No cloud project storage.
-const CACHE_NAME='nexus-personal-lab-2.0.0-unified1';
+// NEXUS MEP LAB 2.0.0 - shared offline runtime for desktop and mobile.
+// Cache each navigation under its own URL, never replace the main workspace
+// with the Room CFD page when switching between tools.
+const CACHE_NAME='nexus-personal-lab-2.0.0-unified2';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg'];
+const isManagedUrl=url=>{
+ const scope=new URL(self.registration.scope);
+ return url.origin===scope.origin&&url.pathname.startsWith(scope.pathname);
+};
+const navigationKey=url=>url.origin+url.pathname; // Ignore query parameters, not the page path.
 self.addEventListener('install',event=>{
- event.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()));
+ event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));
 });
 self.addEventListener('activate',event=>{
  event.waitUntil(Promise.all([
-  caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('nexus-personal-lab-')&&k!==CACHE_NAME).map(k=>caches.delete(k)))),
+  caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('nexus-personal-lab-')&&key!==CACHE_NAME).map(key=>caches.delete(key)))),
   self.clients.claim()
  ]));
 });
 self.addEventListener('fetch',event=>{
  if(event.request.method!=='GET')return;
- const url=new URL(event.request.url),scope=new URL(self.registration.scope);
- if(url.origin!==scope.origin||!url.pathname.startsWith(scope.pathname))return;
+ const url=new URL(event.request.url);
+ if(!isManagedUrl(url))return;
  if(event.request.mode==='navigate'){
   event.respondWith((async()=>{
+   const key=navigationKey(url);
    try{
     const response=await fetch(event.request);
     if(!response.ok)throw Error('HTTP '+response.status);
     const cache=await caches.open(CACHE_NAME);
-    await cache.put('./index.html',response.clone()); // Refresh offline copy after online use.
+    await cache.put(key,response.clone()); // Each route has its own offline snapshot.
     return response;
    }catch{
-    return (await caches.match('./index.html'))||Response.error();
+    const cache=await caches.open(CACHE_NAME);
+    const exact=await cache.match(key);
+    if(exact)return exact;
+    // The root page may be cached under / or /index.html.
+    const root=new URL('./',self.registration.scope);
+    if(url.pathname===root.pathname||url.pathname===root.pathname+'index.html'){
+     return (await cache.match(new URL('./index.html',root).href))||
+            (await cache.match(root.href))||Response.error();
+    }
+    return Response.error(); // Never substitute another tool's UI for an uncached route.
    }
   })());
   return;
