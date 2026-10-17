@@ -2,8 +2,9 @@
 <html lang="zh-CN"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f6f8fb"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="format-detection" content="telephone=no">
-<meta name="description" content="NEXUS MEP LAB 2.0.0：个人机电工程公式实验台，完全离线，手机电脑可用。提供空气、液体热平衡、三相电力与PUE反算。">
-<title>NEXUS MEP LAB 2.0.0 · 个人工程实验室</title>
+<meta name="nexus-public-release" content="4.0.0">
+<meta name="description" content="NEXUS MEP LAB 4.0.0：个人机电工程公式实验台，完全离线，手机电脑可用。提供空气、液体热平衡、三相电力与PUE反算。">
+<title>NEXUS MEP LAB 4.0.0 · 个人工程实验室</title>
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
 <meta name="apple-mobile-web-app-title" content="NEXUS MEP">
@@ -473,6 +474,10 @@ html{scroll-behavior:smooth}body{background:#f5f7fb;line-height:1.5}
 .formula-ref{border:0;background:transparent;color:#48d6c4;font:inherit;font-weight:850;padding:0 2px;cursor:pointer;border-bottom:1px dashed currentColor}.formula-ref:hover{color:#8cf7dd}.formula-trace{margin-top:12px;padding:12px 14px;border:1px solid #bde9e2;background:#f1fffc;color:#225e58;font-size:13px;line-height:1.65}.formula-trace-drawer{display:none;margin:0 0 14px;padding:15px;border:1px solid #b9e9e1;border-left:4px solid #1fcab6;background:#f7fffd;box-shadow:0 10px 30px rgba(19,81,75,.09)}.formula-trace-drawer.open{display:block;position:fixed;top:78px;right:24px;width:310px;max-height:calc(100vh - 102px);overflow:auto;z-index:80}.formula-trace-drawer h3{margin:0 0 8px;font-size:17px;color:#123b42}.formula-trace-drawer p{margin:7px 0;color:#315a60;font-size:12px;line-height:1.55}.formula-trace-nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:12px}.formula-trace-nav .hint{margin-right:auto}.formula-trace-nav .btn{padding:7px 9px;font-size:12px}.power-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}@media(max-width:1120px){.formula-trace-drawer.open{position:static;width:auto;max-height:none}}
 .github-publish{margin-top:14px;padding:14px;border:1px solid #d9e3ef;border-radius:12px;background:#fff}.github-publish-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.github-publish-head b{font-size:14px;color:#172c46}.github-publish small{display:block;margin-top:4px;color:#71809a;line-height:1.45}.github-publish summary{cursor:pointer;margin-top:10px;font-weight:750;color:#38506c}.github-publish-grid{display:grid;gap:8px;margin-top:10px}.github-publish-grid label{display:grid;gap:4px;font-size:12px;color:#53647d}.github-publish-grid input{width:100%;box-sizing:border-box;border:1px solid #d5dfec;border-radius:7px;padding:8px;background:#fbfdff}.github-publish-status{margin-top:8px;color:#61718c;font-size:12px}.github-publish .btn{margin-top:10px;width:100%}
 /* PERSONAL_UX_START */
+/* Unified design tokens; component cascade below retains tested order. */
+:root{--font-ui:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI Variable Text","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei",sans-serif;--font-code:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;--bg:#f5f5f7;--surface:#fff;--surface-secondary:#f2f2f7;--text-primary:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#8e8e93;--accent:#007aff;--success:#34c759;--warning:#ff9500;--danger:#ff3b30;--border:rgba(0,0,0,.08);--divider:rgba(0,0,0,.06);--glass:rgba(255,255,255,.78);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--radius-panel:24px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;--shadow-sm:0 2px 8px #0000000a;--shadow-md:0 8px 24px #0000000f;--motion-fast:150ms;--motion-normal:220ms;--motion-slow:320ms;--ease-standard:cubic-bezier(.2,.8,.2,1);--chrome-tint:rgba(255,255,255,.72);--chrome-line:rgba(255,255,255,.88);--chrome-glow:inset 0 1px 0 #ffffffd9,inset 0 -1px 0 #ffffff73,0 6px 22px #23324b0a;--island-shadow:0 8px 32px #22334b0c,0 1px 3px #22334b08;--island-edge:inset 0 1px 0 #fffffff0,inset 1px 0 0 #ffffff80;--ambient-a:#dceaff;--ambient-b:#ece7fa}
+[data-theme=dark]{--bg:#171719;--surface:#222225;--surface-secondary:#2d2d31;--text-primary:#f2f2f5;--text-secondary:#b8b8c1;--text-tertiary:#a0a0aa;--accent:#0a84ff;--border:#ffffff1c;--divider:#ffffff12;--glass:rgba(34,34,37,.9);--shadow-sm:0 2px 8px #00000026;--shadow-md:0 8px 24px #00000040;--chrome-tint:rgba(46,46,52,.76);--chrome-line:rgba(255,255,255,.16);--chrome-glow:inset 0 1px 0 #ffffff1f,inset 0 -1px 0 #ffffff05,0 6px 22px #00000026;--island-shadow:0 12px 38px #00000030,0 1px 3px #00000020;--island-edge:inset 0 1px 0 #ffffff24,inset 1px 0 0 #ffffff0c;--ambient-a:#1c2636;--ambient-b:#292235}
+
 /* v25: Personal engineering UX. Single-file & offline; no external assets. */
 .lab-reading-mode .parameter-rail{display:none!important}
 .lab-reading-mode .calculation-layout{grid-template-columns:minmax(0,1fr)!important}
@@ -1028,7 +1033,7 @@ html{scroll-behavior:smooth}body{background:#f5f7fb;line-height:1.5}
 }
 
 /* System typography: native on Apple, locally available fallbacks elsewhere. */
-:root{--font-ui:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI Variable Text","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei",sans-serif;--font-code:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace}
+
 html,body,.app.v8-layout{font-family:var(--font-ui);font-synthesis:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .v8-layout :is(button,input,select,textarea){font-family:var(--font-ui)}
 .v8-layout :is(code,pre,.curve-data,.substitution){font-family:var(--font-code)}
@@ -1050,8 +1055,8 @@ html,body,.app.v8-layout{font-family:var(--font-ui);font-synthesis:none;-webkit-
 }
 
 /* 2.0 design tokens, shared by light and dark appearances. */
-:root{--bg:#f5f5f7;--surface:#fff;--surface-secondary:#f2f2f7;--text-primary:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#8e8e93;--accent:#007aff;--success:#34c759;--warning:#ff9500;--danger:#ff3b30;--border:rgba(0,0,0,.08);--divider:rgba(0,0,0,.06);--glass:rgba(255,255,255,.78);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--radius-panel:24px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;--shadow-sm:0 2px 8px #0000000a;--shadow-md:0 8px 24px #0000000f;--motion-fast:150ms;--motion-normal:220ms;--motion-slow:320ms;--ease-standard:cubic-bezier(.2,.8,.2,1)}
-[data-theme=dark]{--bg:#111113;--surface:#1c1c1e;--surface-secondary:#2c2c2e;--text-primary:#f5f5f7;--text-secondary:#aeaeb2;--text-tertiary:#98989e;--accent:#0a84ff;--border:rgba(255,255,255,.12);--divider:rgba(255,255,255,.08);--glass:rgba(28,28,30,.86);--shadow-sm:0 2px 8px #00000026;--shadow-md:0 8px 24px #00000040}
+
+
 .theme-choice{display:inline-flex;align-items:center}.theme-choice select{height:36px;max-width:110px;border:1px solid var(--border);border-radius:var(--radius-md);padding:0 10px;background:var(--surface);color:var(--text-secondary);font:inherit;font-size:12px;cursor:pointer}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 body{background:var(--bg);background-image:none;color:var(--text-primary)}
@@ -1191,7 +1196,7 @@ body{background:var(--bg);background-image:none;color:var(--text-primary)}
 [data-theme=dark] #main-shell .lab-tab.is-active{background:#163c68;color:#d4e8ff}
 
 /* Semantic dark surfaces: never reuse light-theme ink or status backgrounds. */
-[data-theme=dark]{--bg:#171719;--surface:#222225;--surface-secondary:#2d2d31;--text-primary:#f2f2f5;--text-secondary:#b8b8c1;--text-tertiary:#a0a0aa;--border:#ffffff1c;--divider:#ffffff12;--glass:rgba(34,34,37,.9)}
+
 [data-theme=dark] #main-shell :is(.kv-line strong,.big-number,.bar-title strong,.section-h,.inspector-total strong,.inspector-split b){color:var(--text-primary)}
 [data-theme=dark] #main-shell :is(.kv-line .label,.bar-title,.muted,.field-desc,.fields-header,.field label em,.field em,.m-unit,.inspector-total>span,.inspector-total small,.inspector-split small,.inspector-split>div>span,.inspector-summary h3,.formula-disclosure-label,.hyd-loop summary small){color:var(--text-secondary)}
 [data-theme=dark] #main-shell :is(.kv-line,.fields-header,.subtle-divider,.section-h,.inspector-heading){border-color:var(--divider)}
@@ -1223,8 +1228,8 @@ body{background:var(--bg);background-image:none;color:var(--text-primary)}
 [data-theme=dark] #main-shell .theme-choice select:focus{background:var(--surface-secondary);color:var(--text-primary);border-color:#83bfff}
 
 /* Floating glass chrome; opaque reading surfaces remain underneath. */
-:root{--chrome-tint:rgba(255,255,255,.72);--chrome-line:rgba(255,255,255,.88);--chrome-glow:inset 0 1px 0 #ffffffd9,inset 0 -1px 0 #ffffff73,0 6px 22px #23324b0a}
-[data-theme=dark]{--chrome-tint:rgba(46,46,52,.76);--chrome-line:rgba(255,255,255,.16);--chrome-glow:inset 0 1px 0 #ffffff1f,inset 0 -1px 0 #ffffff05,0 6px 22px #00000026}
+
+
 .category-symbol,.sidebar-item-symbol svg{display:block;width:19px;height:19px;flex-shrink:0}.sidebar-item-symbol{width:24px;display:grid;place-items:center;color:var(--accent)}.sidebar-item-label{flex:1;min-width:0;text-align:left}.sidebar-item-chevron{font-size:17px;opacity:.45;margin-left:auto}
 @media screen and (min-width:741px){
  #main-shell .sidebar{padding:20px 12px;background:var(--chrome-tint);border-right:1px solid var(--border);backdrop-filter:blur(24px) saturate(140%);-webkit-backdrop-filter:blur(24px) saturate(140%)}
@@ -1259,8 +1264,8 @@ body{background:var(--bg);background-image:none;color:var(--text-primary)}
 @media(max-width:740px){#main-shell .field>select{font-size:16px;min-height:44px}#main-shell .field:has(>select){padding:10px 0}}
 
 /* Floating workspace chrome: a single glass layer above quiet reading surfaces. */
-:root{--island-shadow:0 8px 32px #22334b0c,0 1px 3px #22334b08;--island-edge:inset 0 1px 0 #fffffff0,inset 1px 0 0 #ffffff80;--ambient-a:#dceaff;--ambient-b:#ece7fa}
-[data-theme=dark]{--island-shadow:0 12px 38px #00000030,0 1px 3px #00000020;--island-edge:inset 0 1px 0 #ffffff24,inset 1px 0 0 #ffffff0c;--ambient-a:#1c2636;--ambient-b:#292235}
+
+
 @media screen and (min-width:961px){
  body{background:radial-gradient(ellipse 65% 50% at 5% 0%,var(--ambient-a),transparent 70%),radial-gradient(ellipse 45% 45% at 100% 10%,var(--ambient-b),transparent 75%),var(--bg);background-attachment:fixed}
  #main-shell .sidebar{top:12px;height:calc(100dvh - 24px);margin:12px 0 12px 12px;padding:18px 10px;border:1px solid var(--chrome-line);border-radius:24px;box-shadow:var(--island-edge),var(--island-shadow)}
@@ -1359,6 +1364,81 @@ body{background:var(--bg);background-image:none;color:var(--text-primary)}
 @media(prefers-reduced-motion:reduce){.page-back-top{animation:none}.page-back-top:active{transform:none}.reading-progress{transition:none}}
 @media(prefers-reduced-transparency:reduce){.page-back-top{background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none}}
 @media print{.page-back-top,.reading-progress{display:none!important}}
+
+/* Shared form and text hierarchy across both calculation disciplines. */
+#main-shell :is(.power-workspace,.module-results-first) .box-h h3{font-size:17px;font-weight:600;color:var(--text-primary)}
+#main-shell :is(.power-workspace,.module-results-first) .formula-intro{font-size:13px;color:var(--text-secondary);line-height:1.65}
+#main-shell :is(.power-workspace,.module-results-first) .field label{font-size:14px;font-weight:400;color:var(--text-primary);line-height:1.5}
+#main-shell :is(.power-workspace,.module-results-first) .field-desc{font-size:12px;color:var(--text-secondary);line-height:1.6}
+#main-shell :is(.power-workspace,.module-results-first) input:not([type=range]),#main-shell :is(.power-workspace,.module-results-first) select{font-size:16px;min-height:40px;border-radius:10px}
+#main-shell .command-icon svg{width:20px;height:20px;display:block}
+#main-shell :is(.command-searchline,.command-dialog,.command-bottom){color:var(--text-primary);border-color:var(--divider)}
+@media(max-width:740px){#main-shell .section-grid,#main-shell .section-grid.wide-left{grid-template-columns:minmax(0,1fr)}#main-shell .field-grid.cols3{grid-template-columns:minmax(0,1fr)}#main-shell .metric .m-value{white-space:normal;overflow-wrap:anywhere}#main-shell .settings-group .field-grid{grid-template-columns:minmax(0,1fr)}}
+
+#main-shell .desktop-mega button:focus-visible{outline:3px solid var(--accent);outline-offset:2px;background:var(--surface-secondary);color:var(--text-primary)}
+#main-shell .page-title:focus{outline:none}
+#main-shell .scroll-await:focus-within{opacity:1;transform:none}
+
+/* 3.0 project delivery workspace */
+.workflow-project{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 28px;background:var(--surface);border:1px solid var(--border);border-radius:24px;margin-bottom:24px}.workflow-eyebrow{font-size:12px;color:var(--text-secondary)}.workflow-project h2{font-size:26px;line-height:1.3;margin:8px 0;color:var(--text-primary);letter-spacing:-.025em}.workflow-project p{margin:0;font-size:13px;color:var(--text-secondary)}
+.workflow-stages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 28px}.workflow-stages button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:0;padding:20px;text-align:left;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text-primary);cursor:pointer;font:inherit;transition:transform 180ms,box-shadow 180ms}.workflow-stage-no{font-size:12px;color:var(--accent);font-variant-numeric:tabular-nums}.workflow-stages strong{font-size:17px;font-weight:600}.workflow-stage-status{font-size:12px;color:var(--text-secondary)}.workflow-stages small{font-size:12px;line-height:1.6;color:var(--text-secondary)}.workflow-stage-arrow{position:absolute;right:18px;top:18px;color:var(--text-secondary);font-size:20px}
+.workflow-main{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,.9fr);gap:24px;align-items:start}.workflow-side{min-width:0}.workflow-actions{display:grid;gap:10px}.workflow-caption{font-size:12px;line-height:1.7;color:var(--text-secondary);margin:16px 0 0}.workflow-issues{list-style:none;padding:0;margin:0}.workflow-issues li{display:flex;gap:20px;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--divider)}.workflow-issues strong{font-size:14px;font-weight:500;color:var(--text-primary)}.workflow-issues p{font-size:12px;color:var(--text-secondary);line-height:1.7;margin:6px 0 0}.workflow-issues .btn{flex-shrink:0}.workflow-summary{margin:0 0 18px}.workflow-summary>div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--divider);font-size:13px}.workflow-summary dt{color:var(--text-secondary)}.workflow-summary dd{margin:0;color:var(--text-primary);font-variant-numeric:tabular-nums}.workflow-tools{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}.workflow-file-check{font-size:13px;line-height:1.7;padding:12px;border-radius:12px}.workflow-file-check.is-ok{background:color-mix(in srgb,var(--success) 12%,var(--surface));color:var(--text-primary)}.workflow-file-check.is-error{background:color-mix(in srgb,var(--danger) 12%,var(--surface));color:var(--text-primary)}
+#main-shell .workflow-stages button:hover{background:var(--surface);box-shadow:var(--shadow-md);transform:translateY(-2px)}.workflow-stages button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(max-width:1200px){.workflow-stages{grid-template-columns:repeat(2,minmax(0,1fr))}.workflow-main{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:740px){.workflow-project{padding:18px;align-items:flex-start;flex-direction:column}.workflow-project h2{font-size:23px}.workflow-stages{gap:10px}.workflow-stages button{padding:16px}.workflow-stages strong{font-size:15px}.workflow-issues li{gap:10px}.workflow-main{gap:16px}.workflow-stage-status{overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){.workflow-stages button{transition:none}#main-shell .workflow-stages button:hover{transform:none}}
+@media print{.workflow-tools,.workflow-stages,.project-hub-trigger{display:none}.workflow-main{display:block}}
+
+.project-workflow .inspector-lab-note{display:none}
+
+@media(max-width:740px){#main-shell .sidebar .expert-nav{display:block;margin:8px 0;border:0}#main-shell .sidebar{background:var(--surface);color:var(--text-primary)}#main-shell .sidebar .expert-nav>summary{display:flex;align-items:center;justify-content:space-between;min-height:44px;color:var(--text-primary);font-size:14px;background:var(--surface-secondary);border-radius:12px}#main-shell .sidebar .nav-sub-link{min-height:44px;color:var(--text-primary)}#main-shell .sidebar .nav-sub-link.active{background:color-mix(in srgb,var(--accent) 12%,var(--surface));color:var(--text-primary)}#main-shell .sidebar .group-label{display:block;color:var(--text-secondary);font-size:12px}#main-shell .sidebar .nav-sub-list{padding:4px 0}}
+
+/* 4.0 Delivery refinements: semantic states, typography and responsive controls. */
+#main-shell{--detail-focus:#007aff;--detail-muted:var(--text-secondary);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.55;font-synthesis:none}
+#main-shell :is(button,input,select,textarea){font:inherit;letter-spacing:normal}
+#main-shell :is(h1,h2,h3,h4){text-wrap:balance;letter-spacing:-.025em;line-height:1.25}
+#main-shell :is(p,small,.hint,.note-box){overflow-wrap:anywhere}
+#main-shell :is(.m-value,.metric-value,dd,td,input[inputmode=decimal]){font-variant-numeric:tabular-nums lining-nums}
+#main-shell :is(.m-unit,.field small,.hint){color:var(--text-secondary)}
+#main-shell :is(input,select,textarea){box-sizing:border-box;max-width:100%;min-width:0;accent-color:var(--detail-focus);scroll-margin-block:110px}
+#main-shell :is(input:not([type=checkbox]):not([type=radio]),select){min-height:44px}
+#main-shell select{padding-inline:12px 32px;text-overflow:ellipsis}
+#main-shell :is(.decision-field,.field):has(>select){grid-column:1/-1}
+#main-shell :is(.decision-field,.field)>select{width:100%;max-width:100%}
+#main-shell :is(input,textarea)::placeholder{color:var(--text-secondary);opacity:.8}
+#main-shell :is(input,select,textarea):hover:not(:disabled){border-color:var(--detail-focus)}
+#main-shell :is(input,select,textarea):focus-visible{outline:3px solid color-mix(in srgb,var(--detail-focus) 35%,transparent);outline-offset:2px;border-color:var(--detail-focus)}
+#main-shell :is(button,a,summary,[tabindex]):focus-visible{outline:3px solid var(--detail-focus);outline-offset:4px}
+#main-shell :is(input,textarea)::selection{background:#007aff40}
+#main-shell :is(button,input,select,textarea):disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+#main-shell :is([aria-invalid=true],.invalid){outline:2px solid #dc3545;outline-offset:2px}
+#main-shell .btn{min-height:40px;transition:background-color .18s,box-shadow .18s,transform .18s}
+#main-shell .btn:active:not(:disabled){transform:scale(.97)}
+#main-shell :is(.box,.metric,.workflow-project,.workflow-stages>* ){min-width:0}
+#main-shell :is(.box-h,.preset-bar,.decision-top-actions){flex-wrap:wrap;gap:12px}
+#main-shell .box-h h3{margin:0}
+#main-shell :is(.hero,.workflow-project) h2{overflow-wrap:anywhere}
+#main-shell :is(.parameter-rail,.sidebar){overscroll-behavior:contain;scrollbar-width:thin;scroll-padding-block:20px}
+#main-shell .command-item:focus-visible{background:var(--surface-secondary);outline-offset:-3px}
+#main-shell .command-empty{padding:28px;line-height:1.8;color:var(--text-secondary)}
+#main-shell mark{background:#007aff22;color:inherit;border-radius:3px;padding:0 1px}
+#main-shell .decision-field.is-changed{border-inline-start:3px solid var(--detail-focus);padding-inline-start:12px;background:color-mix(in srgb,var(--detail-focus) 6%,transparent)}
+.delivery-save{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:90;max-width:calc(100vw - 40px);padding:7px 16px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--text-secondary);box-shadow:0 4px 20px #0001;font-size:12px;pointer-events:none}
+.delivery-save[data-state=error]{color:var(--text-primary);border-color:#dc3545;pointer-events:auto;border-radius:12px}
+.delivery-skip{position:fixed;top:8px;left:8px;z-index:9999;transform:translateY(-150%);background:var(--surface);color:var(--text-primary);padding:12px;border-radius:12px}.delivery-skip:focus{transform:none}
+@media(max-width:740px){#main-shell :is(input,select,textarea){font-size:16px}#main-shell :is(.btn,summary,.command-item){min-height:44px}.delivery-save{bottom:calc(76px + env(safe-area-inset-bottom));font-size:11px}#main-shell .parameter-rail{padding-bottom:calc(24px + env(safe-area-inset-bottom))}#main-shell .decision-fields{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#main-shell *,#main-shell *::before,#main-shell *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(prefers-reduced-transparency:reduce){#main-shell :is(.topbar,.sidebar,.parameter-rail,.desktop-mega,.command-box){backdrop-filter:none!important;background:var(--surface)!important}}
+@media print{.delivery-save,.delivery-skip{display:none!important}table{width:100%!important}thead{display:table-header-group}tr,figure{break-inside:avoid}h2,h3,h4{break-after:avoid}a{overflow-wrap:anywhere}}
+
+#main-shell .select-value-summary{display:block;grid-column:1/-1;white-space:normal;overflow-wrap:anywhere;color:var(--text-secondary);font-size:13px;line-height:1.5;margin-top:6px}#main-shell .select-value-summary[hidden]{display:none}
+/* Public workspace navigation */
+.nexus-workspace-link{display:block;margin:8px 12px;padding:11px 14px;border:1px solid var(--border,#dbe3ec);border-radius:12px;background:var(--surface,#fff);color:var(--text,#152b44);font-size:13px;font-weight:700;text-decoration:none;line-height:1.35}
+.nexus-workspace-link:hover{border-color:var(--accent,#3679ea);color:var(--accent,#3679ea)}
+.nexus-workspace-shortcut{margin-top:9px}
+.nexus-workspace-shortcut a{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:10px;background:var(--surface,#fff);border:1px solid var(--border,#dbe3ec);color:var(--text,#152b44);font-size:13px;font-weight:700;text-decoration:none}
+.nexus-workspace-shortcut a:focus-visible,.nexus-workspace-link:focus-visible{outline:3px solid #4d80e8;outline-offset:2px}
+
 /* PERSONAL_UX_END */
 /* QUICK_ACCESS_CSS_START */
 /* v1.7: personal shortcuts and recently visited calculator pages */
@@ -1390,14 +1470,9 @@ body{background:var(--bg);background-image:none;color:var(--text-primary)}
 #main-shell .nexus-quick :is(.nexus-quick-pill,.nexus-pin){background:var(--surface-secondary);border-color:var(--border);border-radius:999px;font-weight:500}
 #main-shell .nexus-quick-pill.is-current{color:var(--accent)}
 /* QUICK_ACCESS_CSS_END */
-/* NEXUS PUBLIC FULL-FEATURE WORKSPACE SWITCH */
-.nexus-workspace-link{display:block;margin:8px 12px;padding:11px 14px;border:1px solid var(--border,#dbe3ec);border-radius:12px;background:var(--surface,#fff);color:var(--text,#152b44);font-size:13px;font-weight:700;text-decoration:none;line-height:1.35}
-.nexus-workspace-link:hover{border-color:var(--accent,#3679ea);color:var(--accent,#3679ea)}
-.nexus-workspace-shortcut{margin-top:9px}
-.nexus-workspace-shortcut a{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:10px;background:var(--surface,#fff);border:1px solid var(--border,#dbe3ec);color:var(--text,#152b44);font-size:13px;font-weight:700;text-decoration:none}
-.nexus-workspace-shortcut a:focus-visible,.nexus-workspace-link:focus-visible{outline:3px solid #4d80e8;outline-offset:2px}
 </style>
-</head><body><div id="app"><div class="app v8-layout" id="main-shell">
+</head><body>
+<a class="delivery-skip" href="#page">跳到主要内容</a><div id="app"><div class="app v8-layout" id="main-shell">
  <aside class="sidebar" aria-label="功能模块导航"><div class="brand brand-close-only"><button class="sidebar-close" aria-label="关闭导航" data-shell="close">×</button></div>
  <button class="project-switch" data-go="workspace"><span class="project-symbol">DC</span><span class="project-text"><b id="project-title">数据中心机电方案</b><small><span id="project-workload">255 kW</span> 当前工程 · 本地独立存储</small></span><span class="project-chevron">⌄</span></button>
  <div class="side-section-top"><span>快速导航</span><span>离线工具</span></div>
@@ -1408,9 +1483,9 @@ body{background:var(--bg);background-image:none;color:var(--text-primary)}
   <button type="button" class="search-trigger" data-shell="search" aria-label="搜索计算模块"><span class="search-glyph">⌕</span><span class="search-placeholder">搜索计算模块...</span><kbd>Ctrl K</kbd></button>
   <button type="button" class="btn lab-quick-link" data-go="formula-lab" title="进入公式实验台">∑ 公式实验</button><div class="top-toolbox"><button type="button" class="inspector-toggle" data-shell="inspector" aria-label="切换参数检查器" aria-pressed="true" title="收起参数检查器"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M12.5 3v14" stroke="currentColor" stroke-width="1.5"/></svg><span>检查器</span></button><span class="saved-badge"><i></i> 参数修改后实时联动</span><div class="top-actions" id="top-actions"><button class="btn" data-action="reset" title="将当前工程数据恢复为示例值（需确认）">↺ <span>恢复示例</span></button></div></div></header>
  <div class="content"><section class="mobile-focus" id="mobile-focus" aria-label="手机快速工作台">
- <div class="mf-line"><span class="mf-label">NEXUS / 手机离线工作台</span><span>2.0.0</span></div><div class="mf-line" style="margin-top:6px"><b id="mf-project">数据中心机电方案</b><span>本机独立保存</span></div>
+ <div class="mf-line"><span class="mf-label">NEXUS / 手机离线工作台</span><span>4.0.0</span></div><div class="mf-line" style="margin-top:6px"><b id="mf-project">数据中心机电方案</b><span>本机独立保存</span></div>
  <div class="mf-kpis"><div class="mf-kpi"><span>设计冷量</span><strong id="mf-cooling">294.53</strong><small>kW</small></div><div class="mf-kpi"><span>冷冻水</span><strong id="mf-chw">50.66</strong><small>m³/h</small></div><div class="mf-kpi"><span>TCS 流量</span><strong id="mf-tcs">26.40</strong><small>m³/h</small></div></div>
- <div class="nexus-workspace-shortcut"><a href="./room-cfd/index.html?view=roomcfd">▦ 进入机房 CFD / 模块化 POD 布局</a></div><div class="mf-actions"><button type="button" class="mf-btn secondary" data-action="mobile-backup">⇪ 分享项目备份</button><button type="button" class="mf-btn" data-action="mobile-word">▣ 分享 Word 计算书</button></div></section>
+ <div class="nexus-workspace-shortcut"><a href="./room-cfd/index.html?view=roomcfd">机房 CFD / 模块化 POD 布局 ›</a></div><div class="mf-actions"><button type="button" class="mf-btn secondary" data-action="mobile-backup">⇪ 分享项目备份</button><button type="button" class="mf-btn" data-action="mobile-word">▣ 分享 Word 计算书</button></div></section>
  <div class="calculation-layout"><div class="calculation-main"><div id="page"><div class="page-head"><div><h1 class="page-title">IT 散热负荷</h1><p class="page-desc">IT 功率、热负荷系数及风冷/液冷热量分配 · 修改右侧原始输入后，所有关联模块实时重算。</p></div></div><div class="box"><div class="box-h"><h3>系统原理与计算逻辑</h3><span class="hint">HVAC 01</span></div><p class="module-principle">IT 设备电功率最终几乎都以热量形式进入机房；液冷比例只分配热量路径，不减少 IT 电功率。</p><div class="power-links"><span class="hint">暖通计算链 1 / 12</span><button class="btn btn-primary" data-go="hvac-airflow">下一项 ›</button></div></div><div class="metric-grid"><div class="metric accent"><div class="m-head"><span>设计总散热量</span><span class="m-icon">❄</span></div><div class="m-value">294.53 <span class="m-unit">kW</span></div><div class="m-foot">IT 功率 × 负荷系数 × 裕量</div></div><div class="metric "><div class="m-head"><span>风冷热负荷</span><span class="m-icon">▥</span></div><div class="m-value">117.81 <span class="m-unit">kW</span></div><div class="m-foot">40% 热量分配</div></div><div class="metric teal"><div class="m-head"><span>液冷热负荷</span><span class="m-icon">▧</span></div><div class="m-value">176.72 <span class="m-unit">kW</span></div><div class="m-foot">60% 热量分配</div></div></div><section class="box formula-panel"><div class="box-h"><h3>ƒx IT 散热与风液分配</h3><span class="hint">FORMULA WALKTHROUGH</span></div><p class="formula-intro">逐步显示原始公式、代入数值与单位关系</p><div class="steps"><div class="step"><div class="step-no">01</div><div class="step-body"><h4>IT 负荷形成设计散热量</h4><div class="formula"><button type="button" class="formula-ref" data-formula-symbol="QIT">Q<sub>IT</sub></button> = <button type="button" class="formula-ref" data-formula-symbol="PIT">P<sub>IT</sub></button> × <button type="button" class="formula-ref" data-formula-symbol="Kload">K<sub>load</sub></button> × <button type="button" class="formula-ref" data-formula-symbol="Kreserve">K<sub>reserve</sub></button></div><div class="substitution">255.00 × 1.1 × 1.05</div><div class="answer"><button type="button" class="formula-ref" data-formula-symbol="QIT">Q<sub>IT</sub></button> = 294.53 kW</div></div></div><div class="step"><div class="step-no">02</div><div class="step-body"><h4>分配空气侧和液冷侧热量</h4><div class="formula"><button type="button" class="formula-ref" data-formula-symbol="Qair">Q<sub>air</sub></button> = <button type="button" class="formula-ref" data-formula-symbol="QIT">Q<sub>IT</sub></button>(1−<button type="button" class="formula-ref" data-formula-symbol="alpha">α</button>)；<button type="button" class="formula-ref" data-formula-symbol="Qliq">Q<sub>liquid</sub></button> = <button type="button" class="formula-ref" data-formula-symbol="QIT">Q<sub>IT</sub></button><button type="button" class="formula-ref" data-formula-symbol="alpha">α</button></div><div class="substitution">294.53 × (1−0.6)；294.53 × 0.6</div><div class="answer">117.81 / 176.72 kW</div></div></div></div></section><div class="box"><div class="box-h"><h3>暖通计算链</h3><span class="hint">PREVIOUS / NEXT</span></div><div class="power-links"><span class="hint">暖通计算链 1 / 12</span><button class="btn btn-primary" data-go="hvac-airflow">下一项 ›</button></div></div></div></div><aside class="parameter-rail" aria-label="原始输入参数"><section id="formula-trace-drawer" class="formula-trace-drawer" aria-live="polite" aria-label="公式符号追溯"></section><section class="control-deck" aria-label="跨模块联动工况">
   <div class="deck-topline"><div class="deck-title"><span class="deck-kicker">INPUT DATA</span><strong>原始输入</strong><span class="deck-pulse">● 实时联动</span></div></div><p class="deck-input-hint">点击数值即可编辑，修改后各模块实时重算。蓝色光圈表示正在输入。</p>
   <div class="deck-controls">
@@ -1429,7 +1504,7 @@ body{background:var(--bg);background-image:none;color:var(--text-primary)}
    <details open=""><summary>设置发布目标</summary><div class="github-publish-grid"><label>仓库<input id="github-repo" value="ksplook/NEXUS-MEP-LAB" autocomplete="off"></label><label>发布分支<input value="自动读取仓库默认分支" disabled="" aria-label="仓库默认分支"></label><label>发布路径（自动生成）<input value="app/vN/index.html" disabled="" aria-label="自动生成的版本发布路径"></label><label>本次版本说明<input id="github-release-note" value="NEXUS MEP LAB 离线页面更新" maxlength="120" autocomplete="off"></label><label>访问令牌<input id="github-token" type="password" value="" placeholder="fine-grained token（Contents: Read and write）" autocomplete="off"></label></div></details>
    <button type="button" class="btn" data-github-action="check">检查授权及版本</button><button type="button" class="btn btn-primary" data-github-action="publish">创建新版本（原子提交）</button><button type="button" class="btn" data-github-action="clear-token">清空令牌</button><div class="github-publish-status" id="github-publish-status" style="color: rgb(97, 113, 140);">正在读取现有版本目录…</div>
   </section>
- </section></aside></div><footer class="footer">NEXUS MEP LAB 2.0.0 · 个人工程实验室 · 未经厂家和规范专项复核不可用于最终选型或施工图设计</footer></div></main></div>
+ </section></aside></div><footer class="footer">NEXUS MEP LAB 4.0.0 · 个人工程实验室 · 未经厂家和规范专项复核不可用于最终选型或施工图设计</footer></div></main></div>
  <nav class="mobile-dock" aria-label="方案快捷导航"><button type="button" data-go="system"></button></nav>
  <div class="command-modal" id="command-modal" hidden="" role="dialog" aria-modal="true" aria-label="快速查找模块"><div class="command-backdrop" data-shell="close-search"></div><div class="command-box"><div class="command-searchline"><span>⌕</span><input id="command-input" type="search" placeholder="搜索冷量、风墙、CDU、管网、性能曲线..." autocomplete="off" aria-label="搜索模块"><button data-shell="close-search" type="button" aria-label="关闭搜索">Esc</button></div><div class="command-caption">快速跳转 · 共 20 个模块</div><div id="command-results" class="command-results"></div><div class="command-bottom"><span>↑↓ 选择 · ↵ 打开</span><span>Esc 关闭</span></div></div></div>
  <input style="display:none" type="file" id="takeoff-file" accept=".csv,.tsv,text/csv,text/tab-separated-values"><input style="display:none" type="file" id="pricebook-file" accept=".tsv,text/tab-separated-values,text/plain"><input style="display:none" type="file" id="project-file" accept=".json,application/json">
@@ -4579,6 +4654,16 @@ let provider=defaultProvider();
 let curves=defaultCurves();
 const escapeMarkup = s => String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('\"','&quot;');
 const TABS=[
+  {id:'engineering-hub',label:'工程工作台',icon:'◇',subtitle:'项目、校核、方案、版本与交付'},
+  {id:'workspace',label:'项目管理',icon:'◇',subtitle:'创建、复制、备份与恢复工程'},
+  {id:'design',label:'设计校核',icon:'◇',subtitle:'数据就绪与系统边界检查'},
+  {id:'decision',label:'方案对比',icon:'◇',subtitle:'锁定方案 A 并比较候选方案 B'},
+  {id:'governance',label:'版本与依据',icon:'◇',subtitle:'资料证据、冻结快照与摘要'},
+  {id:'report',label:'计算书',icon:'◇',subtitle:'章节、封面、Word 与 PDF 导出'},
+  {id:'curves',label:'性能曲线',icon:'◇',subtitle:'厂家性能数据与插值依据'},
+  {id:'boq',label:'工程量与成本',icon:'◇',subtitle:'数量、单价和证据'},
+  {id:'roomcfd',label:'机房 CFD',icon:'◇',subtitle:'机房几何与求解前处理'},
+  {id:'sensitivity',label:'工况敏感性',icon:'◇',subtitle:'扰动校核与设计裕度'},
   {id:'formula-lab',label:'公式实验台',icon:'∑',subtitle:'反算风量、水流量、电流和 PUE；不修改项目数据'},
   {id:'hvac-load',label:'IT 散热负荷',icon:'❄',subtitle:'IT 功率、热负荷系数及风冷/液冷热量分配'},
   {id:'hvac-airflow',label:'风量计算',icon:'≋',subtitle:'按空气显热平衡计算总送风量与单柜风量'},
@@ -4636,7 +4721,7 @@ const sections={modular:['00','MODULAR','选择机房架构与 POD 组合'],budg
 };
 let config={...DEFAULTS,topologyEnabled:2};
 tender=defaultTender(config);
-let active='formula-lab';
+let active='engineering-hub';
 try{const last=sessionStorage.getItem('nexus-mep-last-view');if(TABS.some(t=>t.id===last))active=last}catch{}
 let commandOpen=false;
 let sidebarOpen=false;
@@ -4681,6 +4766,7 @@ function persist(){
  roomSync();
  mpSync();
  if(!workspaceIndex)return false;
+ const savedIndex=JSON.stringify(workspaceIndex);
  try{
   const current=workspaceIndex.projects.find(x=>x.id===workspaceIndex.active);
   if(!current)return false;
@@ -4689,8 +4775,8 @@ function persist(){
   current.updatedAt=new Date().toISOString();
   localStorage.setItem(PROJECT_KEY(current.id),JSON.stringify(captureProjectData()));
   localStorage.setItem(INDEX_KEY,JSON.stringify(workspaceIndex));
-  storageIssue='';return true;
- }catch(err){storageIssue='本地存储失败（容量或隐私限制）：'+err.message;return false;}
+  storageIssue='';deliverySaveStatus(true);return true;
+ }catch(err){workspaceIndex=JSON.parse(savedIndex);storageIssue='本地存储失败（容量或隐私限制）：'+err.message;deliverySaveStatus(false);return false;}
 }
 function initWorkspace(){
  try{
@@ -4728,7 +4814,7 @@ function switchProject(id){
  validateProjectData(state,validateConfig);
  applyProjectData(state);workspaceIndex.active=id;
  if(!persist())throw Error('项目切换后保存失败，请导出工程包');
- active='workspace';app.addEventListener('click',event=>{const pin=event.target.closest('[data-quick-pin]');if(pin)nexusQuickToggle(pin.dataset.quickPin)});
+ active='workspace';
 renderShell();renderPage();
 }
 initWorkspace();
@@ -4781,7 +4867,7 @@ const formulaBox=(title,inner,subtitle='逐步显示原始公式、代入数值�
 function progress(label,ratio,append=''){
  return `<div class="bar-title"><span>${label}</span><b>${pc(ratio,1)}${append}</b></div><div class="strip ${ratio>1?'over':''}"><div style="width:${Math.min(100,ratio*100)}%"></div></div>`;
 }
-function topTitle(){if(active==='formula-lab')return '<div class="page-head"><div><h1 class="page-title">工程公式实验台</h1><p class="page-desc">练习数据只用于即时计算，不会修改当前项目。</p></div></div>';const tab=TABS.find(t=>t.id===active)||TABS[0];return `<div class="page-head"><div><h1 class="page-title">${tab.label}</h1><p class="page-desc">${tab.subtitle} · 修改右侧原始输入后，所有关联模块实时重算。</p></div></div>`;}
+function topTitle(){if(active==='engineering-hub')return '<div class="page-head"><div><h1 class="page-title">工程工作台</h1><p class="page-desc">从项目输入、系统校核到方案对比、冻结与交付。</p></div></div>';if(active==='formula-lab')return '<div class="page-head"><div><h1 class="page-title">工程公式实验台</h1><p class="page-desc">练习数据只用于即时计算，不会修改当前项目。</p></div></div>';const tab=TABS.find(t=>t.id===active)||TABS[0];return `<div class="page-head"><div><h1 class="page-title">${tab.label}</h1><p class="page-desc">${tab.subtitle}${active.startsWith('hvac-')||active.startsWith('power-')?' · 修改项目参数后，关联结果实时重算。':''}</p></div></div>`;}
 function legacyTopTitle(){const [,en,cn]=sections[active];const number=String(TABS.findIndex(t=>t.id===active)+1).padStart(2,'0');return `<div class="page-head"><div><div class="eyebrow">WORKSPACE / ${en}</div><h1 class="page-title">${cn}</h1><p class="page-desc">${TABS.find(t=>t.id===active).subtitle} · 输入即计算，按步骤理解公式</p></div><div class="page-counter"><strong>${number}</strong> / ${TABS.length.toString().padStart(2,'0')}</div></div>`}
 function baseThermalInputs(){return box(`${headLine('01 / 负荷基础')}${fields([
  field('itKw','IT 功耗','kW',1),field('loadFactor','热负荷附加系数 K₁','倍',0.01),field('reserveFactor','设计裕量系数 K₂','倍',0.01),slider()
@@ -4844,9 +4930,14 @@ function nexusQuickBar(){
   '</div></section>';
 }
 /* QUICK_ACCESS_END */
+function workflowSymbol(id){
+ const paths={'engineering-hub':'M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z',workspace:'M3 7V5a2 2 0 012-2h5l2 3h7a2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V7z',report:'M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6',governance:'M12 3l8 4v6c0 5-8 8-8 8s-8-3-8-8V7zM8 12l3 3 5-6',decision:'M5 4v16M19 4v16M5 8h5l4 8h5M5 16h5l4-8h5'};
+ if(!paths[id])return labCategoryIcon(id.startsWith('power-')?'power':/cdu|pump|hydraulic/.test(id)?'liquid':'air');
+ return '<svg class="category-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+paths[id]+'"/></svg>';
+}
 function workflowNav(){
- const item=(id,label)=>`<button class="nav-sub-link ${active===id?'active':''}" data-nav="${id}" ${active===id?'aria-current="page"':''}><span class="sidebar-item-symbol" aria-hidden="true">${id==='formula-lab'?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="4"/><path d="M8 7h8M8 12h2m4 0h2M8 16h2m4 0h2"/></svg>':labCategoryIcon(id.startsWith('power-')?'power':/cdu|pump|hydraulic/.test(id)?'liquid':'air')}</span><span class="sidebar-item-label">${label.replace(/^(?:\d+|∑) · /,'')}</span><span class="sidebar-item-chevron" aria-hidden="true">›</span></button>`;
- return `<div class="group-label">个人工具</div><div class="nav-sub-list">${item('formula-lab','∑ · 公式实验台')}</div><div class="group-label">按专业计算</div><details class="expert-nav" ${active.startsWith('hvac-')?'open':''}><summary>01 · 暖通计算 <span>⌄</span></summary><div class="nav-sub-list">${item('hvac-load','01 · IT 散热负荷')}${item('hvac-airflow','02 · 风量计算')}${item('hvac-air-unit','03 · 风墙 / CRAH')}${config.liquidPct>0?item('hvac-cdu','04 · CDU 计算'):''}${item('hvac-chiller','05 · 冷机')}${item('hvac-heat-rejection','06 · 冷却塔 / 干冷器')}${item('hvac-pump','07 · 水泵')}${item('hvac-hydraulic','08 · 管径与水力')}${item('hvac-air-distribution','09 · 风管与气流组织')}${item('hvac-thermal','10 · 热环境边界')}${item('hvac-efficiency','11 · 控制与能效')}${item('hvac-reliability','12 · 暖通可靠性')}</div></details><details class="expert-nav" ${active.startsWith('power-')?'open':''}><summary>02 · 电气计算 <span>⌄</span></summary><div class="nav-sub-list">${item('power-it','01 · IT 负荷')}${item('power-total','02 · 总用电负荷')}${item('power-ups','03 · UPS 系统')}${item('power-battery','04 · 电池系统')}${item('power-transformer','05 · 变压器')}${item('power-generator','06 · 柴油发电机')}${item('power-distribution','07 · 配电与电缆')}${item('power-reliability','08 · 电力可靠性')}</div></details><p class="nav-note">每个子模块独立成页；右侧原始输入改变后，暖通与电气结果同步更新。</p>`;
+ const item=(id,label)=>`<button class="nav-sub-link ${active===id?'active':''}" data-nav="${id}" ${active===id?'aria-current="page"':''}><span class="sidebar-item-symbol" aria-hidden="true">${id==='formula-lab'?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="4"/><path d="M8 7h8M8 12h2m4 0h2M8 16h2m4 0h2"/></svg>':workflowSymbol(id)}</span><span class="sidebar-item-label">${label.replace(/^(?:\d+|∑) · /,'')}</span><span class="sidebar-item-chevron" aria-hidden="true">›</span></button>`;
+ return `<div class="group-label">工程工作流</div><div class="nav-sub-list">${item('engineering-hub','工程工作台')}${item('workspace','项目管理')}${item('report','计算书')}</div><div class="group-label">个人工具</div><div class="nav-sub-list">${item('formula-lab','∑ · 公式实验台')}</div><div class="group-label">按专业计算</div><details class="expert-nav" ${active.startsWith('hvac-')?'open':''}><summary>01 · 暖通计算 <span>⌄</span></summary><div class="nav-sub-list">${item('hvac-load','01 · IT 散热负荷')}${item('hvac-airflow','02 · 风量计算')}${item('hvac-air-unit','03 · 风墙 / CRAH')}${config.liquidPct>0?item('hvac-cdu','04 · CDU 计算'):''}${item('hvac-chiller','05 · 冷机')}${item('hvac-heat-rejection','06 · 冷却塔 / 干冷器')}${item('hvac-pump','07 · 水泵')}${item('hvac-hydraulic','08 · 管径与水力')}${item('hvac-air-distribution','09 · 风管与气流组织')}${item('hvac-thermal','10 · 热环境边界')}${item('hvac-efficiency','11 · 控制与能效')}${item('hvac-reliability','12 · 暖通可靠性')}</div></details><details class="expert-nav" ${active.startsWith('power-')?'open':''}><summary>02 · 电气计算 <span>⌄</span></summary><div class="nav-sub-list">${item('power-it','01 · IT 负荷')}${item('power-total','02 · 总用电负荷')}${item('power-ups','03 · UPS 系统')}${item('power-battery','04 · 电池系统')}${item('power-transformer','05 · 变压器')}${item('power-generator','06 · 柴油发电机')}${item('power-distribution','07 · 配电与电缆')}${item('power-reliability','08 · 电力可靠性')}</div></details><p class="nav-note">每个子模块独立成页；右侧原始输入改变后，暖通与电气结果同步更新。</p>`;
 }
 function roomViewPage(){return `<div class="box"><div class="top-actions"><button class="btn" data-go="roomcfd">‹ 修改机房</button><button class="btn" data-room-action="plan">平面</button><button class="btn" data-room-action="iso">轴测</button><button class="btn" data-room-action="json">导出 CFD 参数</button><button class="btn btn-primary" data-go="equipment">下一步：配套设备 ›</button></div><div data-zone="room-preview">${roomSvg()}${roomGeometry(roomCfd).issues.map(x=>`<p class="note-box danger">${escapeMarkup(x)}</p>`).join('')}</div><p class="note-box">几何与热源预览，尚未运行 CFD 求解。</p></div>`;}
 function equipmentPage(){return `<div data-zone="equipment-summary"><p class="note-box">${roomCfd.linked?'当前需求由机房参数自动更新。':'尚未联动机房模型，请先回到“建机房”启用联动。'} 需求变化后，请在各系统核对设备容量；不会自动确认厂家型号或价格。</p>${metrics([m('设备电功率',n(config.itKw),'kW'),m('设计空气冷量',n(result.air),'kW'),m('设计液冷量',n(result.liq),'kW'),m('设备运行提醒',result.warnings.length,'项')])}<div class="room-basics">${[['fan','空气制冷','风墙 / 空调',n(result.airFlow)+' m³/h 设计风量'],...(config.liquidPct>0?[['cdu','液冷设备','CDU 换热与泵',n(result.liq)+' kW 换热需求']]:[]),['electric','供电设备','UPS / 电缆',config.racks+' 个机柜'],['plant','冷源设备','冷机 / 冷却塔 / 水泵',n(result.q)+' kW 设计冷量']].map(([id,title,desc,value])=>`<section class="box"><h3>${title}</h3><p>${desc}</p><strong>${value}</strong><p><button class="btn" data-go="${id}">查看与调整 ›</button></p></section>`).join('')}</div><button class="btn btn-primary" data-go="budget">下一步：查看预算 ›</button><details class="box"><summary>需要处理的设备提醒</summary>${result.warnings.map(w=>`<p>${escapeMarkup(w.module)}：${escapeMarkup(w.text)}</p>`).join('')||'暂无计算提醒'}</details></div>`;}
@@ -5567,6 +5658,65 @@ function appendKpiBoqChapters(book,c,r,pp,cost,catText,selected,sections={}){
  }
  return book;
 }
+let workflowBackupCheck=null;
+function workflowStatus(){
+ const readiness=designReadiness();
+ const evidence=governance.evidence.filter(item=>item.status==='checked').length;
+ return {readiness,evidence,snapshots:governance.snapshots.length,hasBaseline:!!decision.baseline,warnings:result.warnings.length};
+}
+function workflowRoute(id){
+ const aliases={hydraulics:'hvac-hydraulic',topology:'hvac-hydraulic',tcspump:'hvac-pump',cdu:'hvac-cdu',pumps:'hvac-pump',tower:'hvac-heat-rejection',catalog:'curves',projectcases:'sensitivity'};
+ const route=aliases[id]||id;return TABS.some(tab=>tab.id===route)?route:'design';
+}
+function engineeringHubPage(){
+ const current=workspaceIndex.projects.find(item=>item.id===workspaceIndex.active),state=workflowStatus();
+ const stages=[
+  ['01','项目与输入','workspace',workspaceIndex.projects.length+' 个本机项目','创建项目、补充元数据、管理独立方案。'],
+  ['02','系统与校核','design',state.readiness.passed+' / '+state.readiness.total+' 项资料就绪','核对计算边界、设备数据与待复核项目。'],
+  ['03','方案与成本','decision',state.hasBaseline?'已锁定方案 A':'尚未锁定方案 A','保留基准方案，比较候选参数与已计价部分。'],
+  ['04','冻结与交付','governance',state.snapshots+' 个冻结快照','登记来源、冻结计算版本，再导出计算书。']
+ ];
+ const missing=state.readiness.statuses.filter(item=>!item.ok);
+ const check=workflowBackupCheck;
+ return '<section class="workflow-project"><div><span class="workflow-eyebrow">当前工程 · 本机独立存储</span><h2>'+escapeMarkup(current?.title||reportMeta.projectName)+'</h2><p>'+escapeMarkup(current?.code||reportMeta.projectCode)+' · '+escapeMarkup(reportMeta.phase||'方案初算')+' · 修订 '+escapeMarkup(reportMeta.revision||'A00')+'</p></div><button class="btn" data-go="workspace">管理项目 ›</button></section>'+
+ '<nav class="workflow-stages" aria-label="工程工作流程">'+stages.map(([no,label,route,status,detail])=>'<button type="button" data-go="'+route+'"><span class="workflow-stage-no">'+no+'</span><strong>'+label+'</strong><span class="workflow-stage-status">'+escapeMarkup(status)+'</span><small>'+detail+'</small><span class="workflow-stage-arrow" aria-hidden="true">›</span></button>').join('')+'</nav>'+
+ '<div class="workflow-main"><section class="box"><div class="box-h"><h3>待复核与计算依据</h3><span class="hint">'+missing.length+' 项待补充</span></div><p class="formula-intro">资料就绪检查不是规范合规证明；教学曲线、缺失资料与人工待核项会保留在计算书中。</p><ul class="workflow-issues">'+missing.slice(0,6).map(item=>'<li><div><strong>'+escapeMarkup(item.label)+'</strong><p>'+escapeMarkup(item.detail)+'</p></div><button class="btn" data-go="'+workflowRoute(item.page)+'">查看 ›</button></li>').join('')+'</ul><div class="preset-bar"><button class="btn" data-go="design">全部校核项</button><button class="btn" data-go="curves">厂家曲线</button><button class="btn" data-go="boq">工程量与成本</button></div></section>'+
+ '<aside class="workflow-side"><section class="box"><div class="box-h"><h3>备份与恢复</h3></div><p class="formula-intro">先导出工程包，再验证文件；恢复时作为独立项目导入。</p><div class="workflow-actions"><button class="btn btn-primary" data-work="export" data-project="'+escapeMarkup(workspaceIndex.active)+'">导出当前工程包</button><button class="btn" data-work="backup">备份全部项目</button><button class="btn" data-workflow-verify>验证备份文件</button><button class="btn" data-work="import">导入为独立项目</button></div><input hidden type="file" id="workflow-backup-file" accept=".json,application/json"><div id="workflow-backup-status" role="status" aria-live="polite">'+(check?'<p class="workflow-file-check '+(check.ok?'is-ok':'is-error')+'">'+escapeMarkup(check.message)+'</p>':'')+'</div><p class="workflow-caption">SHA-256 验证用于检测文件变化。下载成功不代表已保存在安全位置，请核对本机文件。</p></section>'+
+ '<section class="box"><div class="box-h"><h3>计算书与留档</h3></div><dl class="workflow-summary"><div><dt>资料人工已核对</dt><dd>'+state.evidence+' 项</dd></div><div><dt>冻结快照</dt><dd>'+state.snapshots+' 版</dd></div><div><dt>当前计算提醒</dt><dd>'+state.warnings+' 项</dd></div></dl><div class="workflow-actions"><button class="btn" data-go="governance">核对依据 / 冻结版本</button><button class="btn" data-go="report">预览与导出计算书</button></div><p class="workflow-caption">当前实时计算书为工作草稿；冻结版本从版本档案导出，保留摘要和输入依据。</p></section></aside></div>'+
+ '<section class="workflow-tools" aria-label="工程辅助工具"><button class="btn" data-go="roomcfd">机房 CFD</button><button class="btn" data-go="sensitivity">工况敏感性</button><button class="btn" data-go="hvac-load">暖通计算</button><button class="btn" data-go="power-it">电气计算</button></section>';
+}
+async function verifyWorkflowBackup(parsed){
+ const items=parsed?.schema===BUNDLE_SCHEMA?await unpackBundle(parsed,validateConfig):[await unpackPortable(parsed,validateConfig)];
+ for(const item of items){const r=calculate(item.data.parameters,item.data.curveData,item.data.branchText,item.data.topologyText);if(!Number.isFinite(r.q))throw Error('工程计算结果无效');}
+ return {ok:true,count:items.length,message:'校验通过：'+items.length+' 个工程的摘要、数据结构与核心计算有效。未修改当前项目。'};
+}
+function deliveryTrash(){
+ const raw=localStorage.getItem('nexus.mep.project-trash.v1');if(!raw)return [];
+ const items=JSON.parse(raw);if(!Array.isArray(items))throw Error('项目恢复记录损坏，请先导出备份');return items;
+}
+function deliveryArchiveProject(id){
+ if(workspaceIndex.projects.length<=1)throw Error('必须至少保留一个项目');
+ if(!persist())throw Error(storageIssue||'当前项目保存失败');
+ const original=JSON.stringify(workspaceIndex),data=captureProjectData(),trash=deliveryTrash();
+ const entry=workspaceIndex.projects.find(p=>p.id===id);if(!entry)throw Error('未找到项目');
+ const remaining=workspaceIndex.projects.filter(p=>p.id!==id),next={...workspaceIndex,projects:remaining,active:workspaceIndex.active===id?remaining[0].id:workspaceIndex.active};
+ if(next.active!==workspaceIndex.active)validateProjectData(JSON.parse(localStorage.getItem(PROJECT_KEY(next.active))),validateConfig);
+ const previousTrash=localStorage.getItem('nexus.mep.project-trash.v1');
+ try{
+  localStorage.setItem('nexus.mep.project-trash.v1',JSON.stringify([...trash,{entry:{...entry},deletedAt:new Date().toISOString()}]));
+  localStorage.setItem(INDEX_KEY,JSON.stringify(next));workspaceIndex=next;
+  if(next.active!==JSON.parse(original).active)applyProjectData(JSON.parse(localStorage.getItem(PROJECT_KEY(next.active))));
+ }catch(error){workspaceIndex=JSON.parse(original);applyProjectData(data);try{localStorage.setItem(INDEX_KEY,original);if(previousTrash===null)localStorage.removeItem('nexus.mep.project-trash.v1');else localStorage.setItem('nexus.mep.project-trash.v1',previousTrash)}catch{}throw error;}
+}
+function deliveryRestoreProject(){
+ const trash=deliveryTrash();if(!trash.length)throw Error('没有可恢复项目');if(workspaceIndex.projects.length>=MAX_PROJECTS)throw Error('项目数量已达上限');
+ const item=trash.at(-1);if(workspaceIndex.projects.some(p=>p.id===item.entry.id))throw Error('项目已存在');
+ validateProjectData(JSON.parse(localStorage.getItem(PROJECT_KEY(item.entry.id))),validateConfig);
+ const original=JSON.stringify(workspaceIndex),oldTrash=JSON.stringify(trash),next={...workspaceIndex,projects:[...workspaceIndex.projects,item.entry]};
+ try{localStorage.setItem(INDEX_KEY,JSON.stringify(next));localStorage.setItem('nexus.mep.project-trash.v1',JSON.stringify(trash.slice(0,-1)));workspaceIndex=next;}
+ catch(error){try{localStorage.setItem(INDEX_KEY,original);localStorage.setItem('nexus.mep.project-trash.v1',oldTrash)}catch{}throw error;}return item.entry.title;
+}
+
 function workspacePage(){
  const rows=workspaceIndex.projects.map(p=>{
   const isActive=p.id===workspaceIndex.active;
@@ -5581,7 +5731,7 @@ function workspacePage(){
  ${metrics([m('工程项目',workspaceIndex.projects.length,'项','最大 '+MAX_PROJECTS+' 项','accent'),m('当前 IT 负荷',n(config.itKw),'kW','全工程隔离'),m('当前冻结版本',governance.snapshots.length,'版','可从原有审校页导出'),m('存储状态',storageIssue?'需备份':'本地','','浏览器 localStorage',storageIssue?'orange':'teal')])}
  ${storageIssue?`<div class="note-box danger">${escapeMarkup(storageIssue)}</div>`:''}
  ${box(`<div class="preset-bar"><button class="btn btn-primary" data-work="new">＋ 新建空白项目</button><button class="btn" data-work="backup">⇩ 备份所有项目</button><button class="btn" data-work="import">⇧ 导入项目包/工作区备份</button></div><p class="note-box warn">离线 ≠ 自动安全备份。localStorage 可能因浏览器清理数据、文件路径变化或存储配额限制而丢失。建议每个关键冻结版都导出工程包至公司受控磁盘；工程包 SHA-256 仅检测内容变化，不证明数据来源和人员身份。v11 的本地数据只在初次运行时复制迁移，不会清除原文件。</p>`,'01 / 离线数据管理','LOCAL FILES · JSON + SHA-256')}
- ${box(`<div class="workspace-projects">${rows}</div>`,'02 / 项目与方案','PROJECT REGISTER')}
+ ${box(`<div class="workspace-projects">${rows}<div class="preset-bar"><button class="btn" data-work="restore-deleted">恢复最近移出的项目</button><span class="hint">移出项目保留在本机，可恢复；清除浏览器数据会同时清除恢复记录。</span></div></div>`,'02 / 项目与方案','PROJECT REGISTER')}
  ${box(`<p>① 在当前项目修改设备和曲线 → ② 冻结计算版本 → ③ 导出工程包 → ④ 如需对比方案，复制项目后独立调整参数 → ⑤ 打开对应项目导出 Word/PDF 计算书。</p><p class="note-box">跨项目采用独立存储；同一项目的 A00/A01 仍在“项目档案与版本审校”中管理。本机只是工程师个人离线工作台，尚无企业级权限认证或自动签发功能。</p>`,'03 / 建议工程流程','RECOMMENDED WORKFLOW')}`;
 }
 function sensitivityPage(){
@@ -5787,6 +5937,7 @@ function moduleGuide(id){
  return box(`<p class="module-principle">${guide.principle}</p><div class="module-links">${guide.links.filter(([target])=>config.liquidPct>0||target!=='liquid').map(([target,label])=>`<button class="btn" data-go="${target}">关联模块：${label} ›</button>`).join('')}</div>`,'系统原理与计算逻辑','LEARNING PATH');
 }
 function page(){
+ if(active==='engineering-hub')return engineeringHubPage();
  if(active==='formula-lab')return formulaLabPage();
  if(active==='system')return systemCalculationPage();
  if(active==='modular')return mpArchitecturePage();
@@ -5811,11 +5962,17 @@ function deckSync(){
  const sum=document.getElementById('deck-summary');
  if(sum)sum.innerHTML=`<div class="inspector-total"><span>设计冷量</span><strong>${n(result.q)}<small>kW</small></strong></div><div class="inspector-split"><div><span><i class="air-dot"></i>风冷</span><b>${n(result.air)} <small>kW</small></b></div><div><span><i class="liquid-dot"></i>液冷</span><b>${n(result.liq)} <small>kW</small></b></div></div><div class="inspector-warning-count">${result.warnings.length?'待核实提醒 <b>'+result.warnings.length+' 项</b>':'当前无内置提醒'}</div>`;
 }
+function commandHighlight(value,query){
+ const text=String(value||'');if(!query)return escapeMarkup(text);
+ const words=query.split(/\s+/).filter(Boolean);let out='',offset=0;
+ while(offset<text.length){let best=-1,word='';for(const w of words){const index=text.toLowerCase().indexOf(w,offset);if(index>=0&&(best<0||index<best)){best=index;word=w}}
+ if(best<0){out+=escapeMarkup(text.slice(offset));break}out+=escapeMarkup(text.slice(offset,best))+'<mark>'+escapeMarkup(text.slice(best,best+word.length))+'</mark>';offset=best+word.length;}return out;
+}
 function commandRows(filter=''){
  const f=String(filter).trim().toLowerCase();
- const matches=TABS.filter(t=>(config.liquidPct>0||t.id!=='hvac-cdu')&&(!f||[t.label,t.subtitle,t.id,sections[t.id]?.[1]].join(' ').toLowerCase().includes(f)));
+ const matches=TABS.filter(t=>(!f||f.split(/\s+/).every(word=>[t.label,t.subtitle,t.id,sections[t.id]?.[1]].join(' ').toLowerCase().includes(word))));
  if(!matches.length)return '<div class="command-empty">没有找到匹配模块，可试试“冷机”“管网”或“公式”。</div>';
- return matches.map(t=>`<button type="button" class="command-item" data-nav="${t.id}"><span class="command-icon">${t.icon}</span><span class="command-main"><b>${t.label}</b><small>${t.subtitle}</small></span><span class="command-arrow">›</span></button>`).join('');
+ return matches.map(t=>`<button type="button" class="command-item" data-nav="${t.id}"><span class="command-icon" aria-hidden="true">${workflowSymbol(t.id)}</span><span class="command-main"><b>${commandHighlight(t.label,f)}</b><small>${commandHighlight(t.subtitle,f)}</small></span><span class="command-arrow">›</span></button>`).join('');
 }
 function desktopReadLayout(){
  try{const value=JSON.parse(sessionStorage.getItem('nexus-desktop-layout')||'{}');return {sidebar:value?.sidebar===true,inspector:value?.inspector===true};}catch{return {sidebar:false,inspector:false};}
@@ -5834,7 +5991,7 @@ function desktopTogglePane(pane){
  }else{
   desktopFocusRestore=null;
   if(pane==='sidebar')desktopSidebarHidden=!desktopSidebarHidden;
-  if(pane==='inspector'){if(typeof active!=='undefined'&&active==='formula-lab')desktopInspectorLabPinned=!desktopInspectorLabPinned;else desktopInspectorHidden=!desktopInspectorHidden;}
+  if(pane==='inspector'){if(typeof active!=='undefined'&&['formula-lab','engineering-hub','workspace','design','decision','governance','report','boq'].includes(active))desktopInspectorLabPinned=!desktopInspectorLabPinned;else desktopInspectorHidden=!desktopInspectorHidden;}
  }
  desktopSaveLayout();desktopInspectorSync();
 }
@@ -5843,7 +6000,7 @@ let commandReturnFocus=null;
 function desktopInspectorSync(){
  const root=document.getElementById('main-shell'),button=document.querySelector('[data-shell="inspector"]');
  if(!root||!button)return;
- const available=active!=='formula-lab';
+ const available=!['formula-lab','engineering-hub','workspace','design','decision','governance','report','boq'].includes(active);
  root.classList.toggle('inspector-hidden',desktopInspectorHidden);
  root.classList.toggle('inspector-peek',desktopInspectorPreview||(!available&&desktopInspectorLabPinned));
  root.classList.toggle('inspector-lab',!available);
@@ -5869,7 +6026,7 @@ function inspectorHoverPointer(e,entering){
  if(inspectorHoverRegion(e.relatedTarget))return;
  inspectorHoverCancel();
  if(entering){
-  if(active!=='formula-lab'&&!desktopInspectorHidden)return;
+  if(!['formula-lab','engineering-hub','workspace','design','decision','governance','report','boq'].includes(active)&&!desktopInspectorHidden)return;
   inspectorOpenTimer=setTimeout(()=>{desktopInspectorPreview=true;desktopInspectorSync();},100);
  }else inspectorCloseTimer=setTimeout(inspectorHoverClose,240);
 }
@@ -5888,8 +6045,9 @@ function desktopCommandKey(e){
  if(!commandOpen)return false;
  const input=document.getElementById('command-input');
  const items=Array.from(document.querySelectorAll('.command-item'));
- if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+ if(['ArrowDown','ArrowUp','Home','End'].includes(e.key)){
   e.preventDefault();if(!items.length)return true;
+  if(e.key==='Home'||e.key==='End'){(e.key==='Home'?items[0]:items.at(-1)).focus();return true;}
   const index=items.indexOf(document.activeElement),delta=e.key==='ArrowDown'?1:-1;
   const next=index<0?(delta>0?0:items.length-1):(index+delta+items.length)%items.length;
   items[next].focus();return true;
@@ -5925,12 +6083,12 @@ function appendDecisionBook(book,state,options={}){
  }catch(e){book.chapters.push({id:'decision',title:String(book.chapters.length+1).padStart(2,'0')+' 设计—造价方案比选',subtitle:'FAILED PREVIEW',items:[{kind:'alert',text:'已保存 A/B 方案但无法复算：'+e.message}]})}
 }
 function appendProviderBook(book,sp,pd,pr,sections){if(sections?.provider===false)return;try{book.chapters.push({id:'provider',title:String(book.chapters.length+1).padStart(2,'0')+' 标准POD与提供商交付报价审查',subtitle:'PROVIDER SCOPE / COST & BID READINESS',items:providerReportItems(sp,pd,pr)});}catch(e){book.chapters.push({id:'provider',title:'标准POD成本初算',items:[{kind:'alert',text:e.message}]});}}
-function reportBook(){const b=buildCalculationBook(config,result,{...reportMeta,sections:reportSections,context:{curves,topologyText,caseText,catalogText,selections}});appendKpiBoqChapters(b,config,result,powerPlan,costing,catalogText,selections,reportSections);appendV15Book(b,feederText,takeoff,priceBook);appendDecisionBook(b,decision,{sections:reportSections});appendSopertonBook(b,soperton,reportSections);appendProviderBook(b,soperton,pods,provider,reportSections);if(modularPod.enabled)b.chapters.push(mpChapter());b.meta.controlStatus='工作草稿（尚未冻结）';b.meta.version='1.2';return b;}
+function reportBook(){const b=buildCalculationBook(config,result,{...reportMeta,sections:reportSections,context:{curves,topologyText,caseText,catalogText,selections}});appendKpiBoqChapters(b,config,result,powerPlan,costing,catalogText,selections,reportSections);appendV15Book(b,feederText,takeoff,priceBook);appendDecisionBook(b,decision,{sections:reportSections});appendSopertonBook(b,soperton,reportSections);appendProviderBook(b,soperton,pods,provider,reportSections);if(modularPod.enabled)b.chapters.push(mpChapter());b.meta.controlStatus='工作草稿（尚未冻结）';b.meta.version='4.0.0';return b;}
 function attachSnapshotChapter(b,snapshot){
  b.meta.controlStatus='本地冻结版本（非电子签名、非公司批准）';
  b.meta.integrityHash=snapshot.hash;
  b.meta.snapshotId=snapshot.id;
- b.meta.version='1.2';
+ b.meta.version='4.0.0';
  b.chapters.push({id:'control',title:String(b.chapters.length+1).padStart(2,'0')+' 版本记录与资料证据',subtitle:'DOCUMENT CONTROL / TRACEABILITY',items:[
   {kind:'paragraph',text:'本计算书读取自冻结的参数快照，而非实时工作区；SHA-256 仅供核对参数数据是否变化，不代表身份认证、数字签名或公司批准。'},
   {kind:'kv',title:'冻结版本',value:snapshot.id},
@@ -6077,22 +6235,22 @@ function renderShell(){nexusThemeApply();app.innerHTML=`<div class="app v8-layou
  <aside class="sidebar" aria-label="功能模块导航"><div class="brand brand-close-only"><button class="sidebar-close" aria-label="关闭导航" data-shell="close">×</button></div>
  <button class="project-switch" data-go="workspace"><span class="project-symbol">DC</span><span class="project-text"><b id="project-title">${escapeMarkup(workspaceIndex.projects.find(x=>x.id===workspaceIndex.active)?.title||"数据中心项目")}</b><small><span id="project-workload">${n(config.itKw,0)} kW</span> 当前工程 · 本地独立存储</small></span><span class="project-chevron">⌄</span></button>
  <div class="side-section-top"><span>快速导航</span><span>离线工具</span></div>
- <nav class="nav-links" id="nav">${workflowNav()}</nav><a class="nexus-workspace-link" href="./room-cfd/index.html?view=roomcfd" aria-label="打开机房 CFD 前处理和模块化布局工作台">▦ 机房 CFD · POD 布局工作台 ↗</a>
+ <nav class="nav-links" id="nav">${workflowNav()}</nav><a class="nexus-workspace-link" href="./room-cfd/index.html?view=roomcfd">机房 CFD · POD 布局工作台 ›</a>
  <div class="sidebar-bottom"><div class="side-tip"><div class="side-tip-head"><i></i> ENGINEERING MODE</div><strong>计算结果可追溯</strong><p>公式 / 工况 / 曲线数据及工程假设在对应模块展示。</p></div><div class="sidebar-version"><span>NEXUS MEP LAB</span><b>个人公式与机电笔记</b></div></div></aside>
  <div class="mobile-shade" data-shell="close" aria-hidden="true"></div>
  <main class="workspace"><header class="topbar"><div class="top-left"><button type="button" class="app-mark" data-go="formula-lab" aria-label="NEXUS MEP LAB，返回公式实验台" title="返回公式实验台"><svg width="24" height="26" viewBox="0 0 24 26" fill="none" aria-hidden="true"><path d="M3 23V3h4.2l9.6 12.6V3H21v20h-4.2L7.2 10.4V23H3Z" fill="currentColor"/></svg></button><button type="button" class="desktop-pane-button sidebar-toggle" data-shell="sidebar-pane" aria-label="切换模块侧栏" aria-pressed="true" title="收起模块侧栏"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 3v14" stroke="currentColor" stroke-width="1.5"/></svg></button><button type="button" class="icon-button mobile-menu" data-shell="menu" aria-label="打开模块导航">☰</button><div class="breadcrumb"><span class="crumb-home">工作台</span><span class="sep">/</span><b id="crumb">系统设计总图</b></div></div>
-  ${desktopBrowse()}<button type="button" class="search-trigger" data-shell="search" aria-label="搜索计算模块"><span class="search-glyph">⌕</span><span class="search-placeholder">搜索计算模块...</span><kbd>Ctrl K</kbd></button>
+  <button type="button" class="desktop-pane-button project-hub-trigger" data-go="engineering-hub" title="工程工作台">工程</button>${desktopBrowse()}<button type="button" class="search-trigger" data-shell="search" aria-label="搜索计算模块"><span class="search-glyph">⌕</span><span class="search-placeholder">搜索计算模块...</span><kbd>Ctrl K</kbd></button>
   <div class="top-toolbox"><label class="theme-choice"><span class="sr-only">外观主题</span><select data-theme-picker aria-label="外观主题"><option value="system">跟随系统</option><option value="light">浅色</option><option value="dark">深色</option></select></label><button type="button" class="desktop-pane-button focus-toggle" data-shell="focus-pane" aria-label="切换专注计算布局" aria-pressed="false" title="专注计算：收起两侧面板"><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 7V4a1 1 0 0 1 1-1h3m6 0h3a1 1 0 0 1 1 1v3m0 6v3a1 1 0 0 1-1 1h-3m-6 0H4a1 1 0 0 1-1-1v-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>专注</span></button><button type="button" class="inspector-toggle" data-shell="inspector" aria-label="切换参数检查器" aria-pressed="true" title="收起参数检查器"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M12.5 3v14" stroke="currentColor" stroke-width="1.5"/></svg><span>检查器</span></button><span class="saved-badge"><i></i> 参数修改后实时联动</span><div class="top-actions" id="top-actions"><button class="btn" data-action="reset" title="将当前工程数据恢复为示例值（需确认）">↺ <span>恢复示例</span></button></div></div></header>
  <div class="content"><section class="mobile-focus" id="mobile-focus" aria-label="手机快速工作台">
- <div class="mf-line"><span class="mf-label">NEXUS / 手机离线工作台</span><span>2.0.0</span></div><div class="mf-line" style="margin-top:6px"><b id="mf-project">当前工程</b><span>本机独立保存</span></div>
+ <div class="mf-line"><span class="mf-label">NEXUS / 手机离线工作台</span><span>4.0.0</span></div><div class="mf-line" style="margin-top:6px"><b id="mf-project">当前工程</b><span>本机独立保存</span></div>
  <div class="mf-kpis"><div class="mf-kpi"><span>设计冷量</span><strong id="mf-cooling">—</strong><small>kW</small></div><div class="mf-kpi"><span>冷冻水</span><strong id="mf-chw">—</strong><small>m³/h</small></div><div class="mf-kpi"><span>TCS 流量</span><strong id="mf-tcs">—</strong><small>m³/h</small></div></div>
- <div class="mf-actions"><button type="button" class="mf-btn secondary" data-action="mobile-backup">⇪ 分享项目备份</button><button type="button" class="mf-btn" data-action="mobile-word">▣ 分享 Word 计算书</button></div></section>
- <div class="calculation-layout"><div class="calculation-main"><div id="page"></div></div><aside class="parameter-rail" aria-label="原始输入参数"><section id="formula-trace-drawer" class="formula-trace-drawer" aria-live="polite" aria-label="公式符号追溯"></section>${deck()}</aside></div><footer class="footer">NEXUS MEP LAB 2.0.0 · 个人工程实验室 · 未经厂家和规范专项复核不可用于最终选型或施工图设计</footer></div></main></div>
+ <div class="nexus-workspace-shortcut"><a href="./room-cfd/index.html?view=roomcfd">机房 CFD / 模块化 POD 布局 ›</a></div><div class="mf-actions"><button type="button" class="mf-btn secondary" data-action="mobile-backup">⇪ 分享项目备份</button><button type="button" class="mf-btn" data-action="mobile-word">▣ 分享 Word 计算书</button></div></section>
+ <div class="calculation-layout"><div class="calculation-main"><div id="page"></div></div><aside class="parameter-rail" aria-label="原始输入参数"><section id="formula-trace-drawer" class="formula-trace-drawer" aria-live="polite" aria-label="公式符号追溯"></section>${deck()}</aside></div><footer class="footer">NEXUS MEP LAB 4.0.0 · 个人工程实验室 · 未经厂家和规范专项复核不可用于最终选型或施工图设计</footer></div></main></div>
  <nav class="mobile-dock" aria-label="快捷工具">${[['formula-lab','∑','公式'],['hvac-airflow','≋','风量'],['power-total','ϟ','电力'],['workspace','▤','项目']].map(([id,icon,label])=>`<button type="button" data-go="${id}" aria-label="打开${label}"><span class="dock-icon">${icon}</span><span>${label}</span></button>`).join('')}</nav>
  <div class="command-modal" id="command-modal" hidden role="dialog" aria-modal="true" aria-label="快速查找模块"><div class="command-backdrop" data-shell="close-search"></div><div class="command-box"><div class="command-searchline"><span>⌕</span><input id="command-input" type="search" placeholder="搜索冷量、风墙、CDU、管网、性能曲线..." autocomplete="off" aria-label="搜索模块"><button data-shell="close-search" type="button" aria-label="关闭搜索">Esc</button></div><div class="command-caption">快速跳转 · 共 ${TABS.length} 个模块</div><div id="command-results" class="command-results"></div><div class="command-bottom"><span>↑↓ 选择 · ↵ 打开</span><span>Esc 关闭</span></div></div></div>
  <input style="display:none" type="file" id="takeoff-file" accept=".csv,.tsv,text/csv,text/tab-separated-values"><input style="display:none" type="file" id="pricebook-file" accept=".tsv,text/tab-separated-values,text/plain"><input style="display:none" type="file" id="project-file" accept=".json,application/json">
  <input style="display:none" type="file" id="json-file" accept=".json,application/json">`;
- deckSync();syncMobileUX();refineDataTables();nexusThemeApply();
+ deckSync();syncMobileUX();refineDataTables();deliveryRefine(document.getElementById('page'));scheduleScrollChrome();nexusThemeApply();
 }
 // Local navigation history makes mobile/browser Back return to the previous calculation page.
 let nexusRouteHistoryReady=false;
@@ -6139,6 +6297,7 @@ function animateModulePage(route){
  });
 }
 function refineDataTables(){
+ document.querySelectorAll('#page table').forEach(table=>{if(table.closest('.table-scroll'))return;const region=document.createElement('div');region.className='table-scroll';table.before(region);region.appendChild(table);});
  document.querySelectorAll('#page .table-scroll').forEach(region=>{
   region.setAttribute('tabindex','0');
   region.setAttribute('role','region');
@@ -6226,9 +6385,12 @@ function scheduleScrollChrome(){
  scrollChromeFrame=requestAnimationFrame(()=>{scrollChromeFrame=0;syncScrollChrome()});
 }
 function renderPage(){
+ const retainedEditor=modulePageRoute===active?deliveryCaptureEditor():null;
+ const routeChanged=modulePageRoute!==null&&modulePageRoute!==active;
  nexusQuickVisit(active);
  nexusRouteHistorySync();
- app.classList.toggle('lab-reading-mode',active==='formula-lab');
+ app.classList.toggle('lab-reading-mode',['formula-lab','engineering-hub','workspace','design','decision','governance','report','boq'].includes(active));
+ app.classList.toggle('project-workflow',active!=='formula-lab'&&['formula-lab','engineering-hub','workspace','design','decision','governance','report','boq'].includes(active));
  document.getElementById('nav').innerHTML=workflowNav();
  const currentTab=TABS.find(t=>t.id===active)||TABS[0];
  document.getElementById('crumb').textContent=currentTab.label;
@@ -6236,13 +6398,15 @@ function renderPage(){
  prepareSettingsGroups(document.getElementById('page'));
  preparePageSections(document.getElementById('page'));
  animateModulePage(active);
+ if(routeChanged){const title=document.querySelector('#page .page-title');if(title){title.setAttribute('tabindex','-1');title.focus({preventScroll:true})}}
  if(typeof requestAnimationFrame==='function')requestAnimationFrame(()=>{startPageScrollMotion();syncScrollChrome()});else {startPageScrollMotion();syncScrollChrome()}
- deckSync();syncMobileUX();refineDataTables();
- closeMenu();if(commandOpen)closeCommand();
+ deckSync();syncMobileUX();refineDataTables();deliveryRefine(document.getElementById('page'));
+ closeMenu();if(commandOpen)closeCommand();deliveryRestoreEditor(retainedEditor);
  const activeNav=document.querySelector('.nav-link.active,.nav-sub-link.active'),navPane=document.getElementById('nav');if(activeNav&&navPane){const pane=navPane.getBoundingClientRect(),item=activeNav.getBoundingClientRect();if(item.top<pane.top)navPane.scrollTop-=pane.top-item.top+18;else if(item.bottom>pane.bottom)navPane.scrollTop+=item.bottom-pane.bottom+18;}
 }
 document.addEventListener('toggle',event=>{
  const group=event.target;
+ scheduleScrollChrome();
  if(group.matches?.('details[data-settings-group]'))settingsGroupState.set(group.dataset.settingsGroup,group.open);
 },true);
 document.addEventListener('click',event=>{const button=event.target.closest('[data-page-jump]');if(button)jumpPageSection(button.dataset.pageJump)});
@@ -6252,6 +6416,34 @@ document.addEventListener('click',event=>{
  if(!event.target.closest('#page-back-top'))return;
  window.scrollTo({top:0,behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
  const heading=document.querySelector('#page .page-title');if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true})}
+});
+window.matchMedia?.('(prefers-reduced-motion: reduce)').addEventListener?.('change',event=>{
+ if(event.matches){pageRevealObserver?.disconnect();document.querySelectorAll('.scroll-await').forEach(node=>node.classList.remove('scroll-await'));modulePageAnimations.forEach(animation=>animation.cancel());}
+});
+document.addEventListener('focusin',event=>{
+ const pending=event.target.closest?.('.scroll-await');if(pending){pending.classList.remove('scroll-await');pageRevealObserver?.unobserve(pending)}
+});
+document.addEventListener('keydown',event=>{
+ const menu=event.target.closest?.('.desktop-browse');if(!menu)return;
+ if(event.key==='Escape'){event.preventDefault();desktopCatalogCancel();menu.open=false;menu.querySelector('summary')?.focus();return;}
+ if(!['ArrowDown','ArrowUp','Home','End'].includes(event.key))return;
+ const items=Array.from(menu.querySelectorAll('.desktop-mega button')).filter(button=>!button.disabled);
+ if(!items.length)return;
+ event.preventDefault();desktopCatalogCancel();const opening=!menu.open;menu.open=true;
+ const index=items.indexOf(document.activeElement);
+ const next=event.key==='Home'?0:event.key==='End'?items.length-1:event.key==='ArrowDown'?(index+1)%items.length:(index<0?items.length-1:(index-1+items.length)%items.length);
+ const focusItem=()=>{if(menu.open&&(document.activeElement===menu.querySelector('summary')||menu.contains(document.activeElement)))items[next].focus()};
+ if(opening&&!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)setTimeout(focusItem,450);else focusItem();
+});
+document.addEventListener('click',event=>{if(event.target.closest('[data-workflow-verify]'))document.getElementById('workflow-backup-file')?.click()});
+document.addEventListener('change',async event=>{
+ if(event.target.id!=='workflow-backup-file')return;
+ const file=event.target.files?.[0];if(!file)return;
+ const status=document.getElementById('workflow-backup-status');if(status)status.textContent='正在验证文件摘要与工程数据…';
+ try{if(file.size>20*1024*1024)throw Error('备份文件不能超过 20 MB');workflowBackupCheck=await verifyWorkflowBackup(JSON.parse(await file.text()));}
+ catch(error){workflowBackupCheck={ok:false,message:'校验失败：'+error.message+'。当前工程未修改。'};}
+ event.target.value='';
+ if(active==='engineering-hub'){const resultNode=document.getElementById('workflow-backup-status');if(resultNode){const p=document.createElement('p');p.className='workflow-file-check '+(workflowBackupCheck.ok?'is-ok':'is-error');p.textContent=workflowBackupCheck.message;resultNode.replaceChildren(p)}}
 });
 // Update result subtrees without detaching live editors (including a trailing decimal point).
 function refreshOutputTree(live,next){
@@ -6269,6 +6461,7 @@ function refreshOutputTree(live,next){
 }
 function refreshView(){
  const old=document.getElementById('page');if(!old)return;
+ old.querySelectorAll('details[data-settings-group]').forEach(group=>settingsGroupState.set(group.dataset.settingsGroup,group.open));
  const t=document.createElement('div');t.innerHTML=topTitle()+nexusQuickBar()+page();
  prepareSettingsGroups(t);
  preparePageSections(t);
@@ -6286,18 +6479,46 @@ function refreshView(){
   if(live)live.textContent=node.textContent;
  });
  document.querySelectorAll('[data-current="liquidPct"]').forEach(el=>el.textContent=`${config.liquidPct}%`);
- deckSync();syncMobileUX();refineDataTables();
+ deckSync();syncMobileUX();refineDataTables();deliveryRefine(document.getElementById('page'));
 }
-function toast(msg,isError=false){document.querySelector('.toast')?.remove();const node=document.createElement('div');node.className=`toast ${isError?'error':''}`;node.textContent=msg;document.body.appendChild(node);setTimeout(()=>node.remove(),3500)}
+
+function deliveryCaptureEditor(){
+ const el=document.activeElement;if(!el?.matches?.('#page input,#page textarea,#page select'))return null;
+ const attrs=['id','data-dec-field','data-dec-equip','data-field','data-cost','data-report','data-tender','data-bid-qty','data-bid-price'];
+ const key=attrs.find(name=>el.hasAttribute(name));if(!key)return null;
+ return {key,value:el.getAttribute(key),draft:el.value,start:el.selectionStart,end:el.selectionEnd,scroll:window.scrollY};
+}
+function deliveryRestoreEditor(state){
+ if(!state)return;const el=Array.from(document.querySelectorAll('#page input,#page textarea,#page select')).find(node=>node.getAttribute(state.key)===state.value);if(!el)return;
+ el.value=state.draft;el.focus({preventScroll:true});if(state.start!==null&&el.setSelectionRange)try{el.setSelectionRange(state.start,state.end)}catch{}
+ window.scrollTo?.({top:state.scroll,behavior:'instant'});
+}
+
+function deliverySaveStatus(ok){
+ if(typeof document.querySelector!=='function')return;
+ let node=document.querySelector('.delivery-save');
+ if(!node){if(typeof document.createElement!=='function')return;node=document.createElement('div');if(!node.setAttribute)return;node.className='delivery-save';node.setAttribute('role','status');node.setAttribute('aria-live','polite');document.body.appendChild(node)}
+ node.dataset.state=ok?'saved':'error';node.textContent=ok?'已保存到本机 · '+new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'}):'保存失败，请立即导出工程包备份';
+}
+function deliveryRefine(root){
+ if(!root?.querySelectorAll)return;
+ root.querySelectorAll('select').forEach(node=>{node.title=node.selectedOptions?.[0]?.textContent||'';let caption=node.nextElementSibling;if(!caption?.classList.contains('select-value-summary')){caption=document.createElement('small');caption.className='select-value-summary';node.after(caption)}caption.textContent=node.title.length>18?node.title:'';caption.hidden=!caption.textContent;});
+ root.querySelectorAll('.decision-field').forEach(node=>{const input=node.querySelector('[data-dec-field]');if(!input)return;const key=input.dataset.decField;node.classList.toggle('is-changed',!!decision.baseline&&Number(input.value)!==decision.baseline.config[key]);});
+ root.querySelectorAll('input,select,textarea').forEach(node=>{if(!node.getAttribute('aria-label')&&!node.labels?.length){const label=node.closest('.field,.decision-field,.deck-field,.mp-field')?.querySelector('label,span');if(label)node.setAttribute('aria-label',label.textContent.trim())}});
+}
+window.addEventListener?.('beforeunload',event=>{if(typeof storageIssue!=='undefined'&&storageIssue){event.preventDefault();event.returnValue=''}});
+document.addEventListener('change',event=>{if(event.target.matches?.('select')){event.target.title=event.target.selectedOptions?.[0]?.textContent||'';deliveryRefine(event.target.parentElement)}});
+
+function toast(msg,isError=false){document.querySelector('.toast')?.remove();const node=document.createElement('div');node.className=`toast ${isError?'error':''}`;node.textContent=msg;node.setAttribute('role',isError?'alert':'status');document.body.appendChild(node);setTimeout(()=>node.remove(),3500)}
 function updateField(el){const key=el.dataset.key;if((roomCfd.linked||modularPod.enabled)&&['itKw','racks','liquidPct'].includes(key)){el.value=config[key];toast('此数值由机房模型联动，请到“建机房”修改');return;}if(!Object.hasOwn(DEFAULTS,key))return;
  const val=el.value===''?NaN:Number(el.value);
  const candidate={...config,[key]:val};
  const broken=validateConfig(candidate);
- if(broken.length){el.classList.add('invalid');el.title='输入超出范围或不是有效数字';return}
- el.classList.remove('invalid');el.removeAttribute('title');config=candidate;result=calculate(config,curves,branchText,topologyText);persist();if(['topologyEnabled','plantType','plantUseOemCurve','plantUsePartCurve','plantUsePumpCurve','towerUseOemCurve','tcsPumpUseCurve'].includes(key))renderPage();else refreshView();
+ if(broken.length){el.classList.add('invalid');el.title=broken.join('；');el.setAttribute('aria-invalid','true');return}
+ el.classList.remove('invalid');el.removeAttribute('title');el.removeAttribute('aria-invalid');config=candidate;result=calculate(config,curves,branchText,topologyText);persist();if(['topologyEnabled','plantType','plantUseOemCurve','plantUsePartCurve','plantUsePumpCurve','towerUseOemCurve','tcsPumpUseCurve'].includes(key))renderPage();else refreshView();
 }
 function download(filename,contents,mime='application/json'){const blob=new Blob([contents],{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)}
-function exportReport(){const out={governanceEvidence:governance.evidence,name:'NEXUS MEP LAB 数据中心机电初算',version:'1.2',modularPod,roomCfd,exportedAt:new Date().toISOString(),disclaimer:'概念初算，非最终工程选型/规范合规证明',parameters:config,curveData:curves,caseText,branchText,topologyText,catalogText,selections,econ,powerPlan,costing,takeoff,feederText,priceBook,decision,soperton,reportMeta,reportSections,tender,pods,provider,results:result};download('nexus-mep-1.2-working-draft.json',JSON.stringify(out,null,2));toast('已导出完整计算参数与结果 JSON')}
+function exportReport(){const out={governanceEvidence:governance.evidence,name:'NEXUS MEP LAB 数据中心机电初算',version:'4.0.0',modularPod,roomCfd,exportedAt:new Date().toISOString(),disclaimer:'概念初算，非最终工程选型/规范合规证明',parameters:config,curveData:curves,caseText,branchText,topologyText,catalogText,selections,econ,powerPlan,costing,takeoff,feederText,priceBook,decision,soperton,reportMeta,reportSections,tender,pods,provider,results:result};download('nexus-mep-3.0-working-draft.json',JSON.stringify(out,null,2));toast('已导出完整计算参数与结果 JSON')}
 function setFluid(side,type){const data=type==='water'?[1000,4.186,.001]:[1030,3.9,.003];config={...config,[side+'Rho']:data[0],[side+'Cp']:data[1],[side+'Mu']:data[2]};result=calculate(config,curves,branchText,topologyText);persist();renderPage();toast(type==='water'?'已填入清水示例值':'已填入 PG25 示例值（请核对工况）')}
 const FORMULA_SYMBOLS={PIT:'P_IT：IT 设备设计有功功率（kW），读取右侧“IT 功率”。',Prack:'P_rack,avg：平均单柜有功功率（kW/柜）。',Nrack:'N_rack：机柜数量（柜）。',Pfacility:'P_facility：PUE 口径下设施等效有功功率（kW）。',Pnonit:'P_non-IT：设施功率中除 IT 以外的估算差额（kW）。',PUE:'PUE：设施总能耗 / IT 能耗的同周期比值，本工具仅作方案假设。',Pcritical:'P_critical：需要关键电源保障的有功负荷（kW）。',Paux:'P_aux：应急状态需保障的辅助负荷（kW），不等于全部暖通装机。',SUPS:'S_UPS：UPS 额定视在功率（kVA）。',PFout:'PF_out：UPS 额定输出功率因数。',Kmargin:'K：UPS 容量系数。',u:'u：设备的目标最大运行负载率或设计利用率，按当前公式上下文取值。',Enom:'E_nom：电池名义能量（kWh），仅供方案初算。',t:'t：后备时间（min）。',eta:'η：逆变效率。',DoD:'DoD：允许放电深度。',Kage:'K_age：电池老化修正系数。',Sfacility:'S_facility：设施侧视在功率（kVA）。',PF:'PF：交流系统功率因数。',Str:'S_TR,required：变压器所需额定总容量（kVA）。',Sgen:'S_gen：柴油发电机所需额定总容量（kVA）。',I:'I：平衡三相等效线电流（A）。',P:'P：当前公式中的有功功率（kW）。',U:'U：三相线电压（V）。',Ipath:'I_path：每条并联回路分担的电流（A）。',Nparallel:'N_parallel：每相并联回路数。',dU:'ΔU：电压降（V）。',rhoE:'ρ_e：导体电阻率（Ω·mm²/m）。',L:'L：电缆单程长度（m）。',A:'A：单回路单相导体截面积（mm²）。',Sups1:'S_UPS,N−1：UPS 单台故障后的可用容量（kVA）。',Safter:'S_after：设施设备单台故障后的折减可用容量（kVA）。'};
 Object.assign(FORMULA_SYMBOLS,{QIT:'Q_IT：IT 设备形成的设计散热量（kW）。',Kload:'K_load：热负荷附加系数。',Kreserve:'K_reserve：设计裕量系数。',Qair:'Q_air：由空气侧承担的显热负荷（kW）。',Qliq:'Q_liquid：由液冷回路承担的热负荷（kW）。',alpha:'α：液冷带走的热量比例，不是 IT 节电比例。',Vair:'V̇：空气体积流量（m³/h）。',rhoAir:'ρ：空气密度（kg/m³）。',cpAir:'c_p：空气定压比热（kJ/(kg·K)）。',dTair:'ΔT：有效送回风温差（K 或 ℃）。',vair:'v：平均空气流速（m/s）。',Aflow:'A_flow：用于方案初算的有效过风面积（m²）。'});
@@ -6647,6 +6868,7 @@ app.addEventListener('click',async e=>{
     localStorage.setItem(INDEX_KEY,JSON.stringify(workspaceIndex));
     switchProject(created.id);toast('项目已创建并独立保存');return;
    }
+   if(cmd==='restore-deleted'){const name=deliveryRestoreProject();renderPage();toast('已恢复项目：'+name);return;}
    if(!entry)throw Error('未找到项目');
    if(cmd==='open'){switchProject(entry.id);toast('已切换项目：'+entry.title);return;}
    if(cmd==='export'){
@@ -6654,7 +6876,7 @@ app.addEventListener('click',async e=>{
     const data=JSON.parse(localStorage.getItem(PROJECT_KEY(entry.id))||'null');
     validateProjectData(data,validateConfig);
     const file=await makePortable(entry,data);
-    download(entry.code.replace(/[^a-zA-Z0-9_-]/g,'_')+'_工程包_v12.json',JSON.stringify(file,null,2));toast('已导出 SHA-256 校验工程包');return;
+    download(entry.code.replace(/[^a-zA-Z0-9_-]/g,'_')+'_工程包_4.0.json',JSON.stringify(file,null,2));toast('已导出 SHA-256 校验工程包');return;
    }
    if(cmd==='rename'){
     const name=prompt('修改项目名称：',entry.title);if(name===null)return;
@@ -6666,16 +6888,8 @@ app.addEventListener('click',async e=>{
     if(!persist())throw Error(storageIssue||'修改未能保存');renderPage();return;
    }
    if(cmd==='delete'){
-    if(workspaceIndex.projects.length<=1)throw Error('必须至少保留一个项目');
-    if(!confirm('确定删除「'+entry.title+'」及其本机冻结版本？删除不可撤销。建议先导出项目工程包。'))return;
-    const deletedActive=entry.id===workspaceIndex.active;
-    const remaining=workspaceIndex.projects.filter(p=>p.id!==entry.id);
-    if(deletedActive){const target=remaining[0];const data=JSON.parse(localStorage.getItem(PROJECT_KEY(target.id))||'null');validateProjectData(data,validateConfig);applyProjectData(data);workspaceIndex.active=target.id;}
-    workspaceIndex.projects=remaining;
-    localStorage.setItem(INDEX_KEY,JSON.stringify(workspaceIndex));
-    localStorage.removeItem(PROJECT_KEY(entry.id));
-    if(!persist())throw Error(storageIssue||'删除后工作区保存失败');
-    renderShell();renderPage();toast('本机项目已删除（外部备份不受影响）');return;
+    if(!confirm('将「'+entry.title+'」移出项目列表？数据与冻结版本保留在本机，可在项目管理中恢复。'))return;
+    deliveryArchiveProject(entry.id);renderShell();renderPage();toast('项目已移出，可在项目管理恢复');return;
    }
   }catch(err){toast('工作区操作失败：'+err.message,true)}
   return;
@@ -6961,7 +7175,7 @@ document.addEventListener('change',async e=>{
    const items=parsed.schema==='nexus.mep.workspace-backup.v12'?await unpackBundle(parsed,validateConfig):[await unpackPortable(parsed,validateConfig)];
    if(items.length+workspaceIndex.projects.length>MAX_PROJECTS)throw Error('导入后超出项目数量上限，请先备份并整理旧项目');
    if(!persist())throw Error('当前工程未能持久保存，导入已取消');
-   if(!confirm('已校验 '+items.length+' 个项目的 SHA-256。将作为新项目导入，不覆盖已有工程。继续？'))return;
+   if(!confirm('恢复预览：'+items.map(item=>String(item.entry.title).slice(0,70)+'（冻结版本 '+item.data.governance.snapshots.length+' 版）').join('；')+'。已通过 SHA-256 校验，将新增 '+items.length+' 个独立项目，不覆盖已有工程。继续？'))return;
    const added=[];
    for(const item of items){
     const entry=makeEntry(item.entry.title,item.entry.code);
@@ -7051,6 +7265,7 @@ document.addEventListener('keydown',e=>{
  if(key==='z'){e.preventDefault();if(e.shiftKey)formulaLabRedo();else formulaLabUndo();}
  else if(key==='y'){e.preventDefault();formulaLabRedo();}
 });
+app.addEventListener('click',event=>{const pin=event.target.closest('[data-quick-pin]');if(pin)nexusQuickToggle(pin.dataset.quickPin)});
 renderShell();renderPage();
 // When the application is intentionally hosted over HTTPS, enable optional
 // offline caching and Add-to-Home-Screen support. file:// remains single-file.
