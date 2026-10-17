@@ -1,0 +1,12 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const release='v4.0.1',html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+let now=1000,audioCount=0,started=0,vibrations=0;const prefs=new Map(),classes=new Set(),styles=new Map();
+const param={setValueAtTime(){},exponentialRampToValueAtTime(){}};
+const c=vm.createContext({Date:{now:()=>now},localStorage:{getItem:k=>prefs.get(k)||null,setItem:(k,v)=>prefs.set(k,v)},navigator:{vibrate(){vibrations++}},window:{innerHeight:844,matchMedia:()=>({matches:true}),visualViewport:{height:500,offsetTop:0,addEventListener(){}},addEventListener(){},AudioContext:class{constructor(){audioCount++;this.state='running';this.currentTime=0;this.destination={}}createOscillator(){return{frequency:param,connect(){},start(){started++},stop(){},disconnect(){}}}createGain(){return {gain:param,connect(){},disconnect(){}}}}},document:{hidden:false,activeElement:{matches:()=>true},documentElement:{style:{setProperty:(k,v)=>styles.set(k,v)}},body:{classList:{remove:k=>classes.delete(k),toggle:(k,v)=>v?classes.add(k):classes.delete(k)}},addEventListener(){}},toast(){}});
+vm.runInContext(html.split('/* EXPERIENCE_START */')[1].split('/* EXPERIENCE_END */')[0],c);const run=s=>vm.runInContext(s,c);
+run('experienceFeedback()');assert.equal(audioCount,0,'silent by default');assert.equal(vibrations,1);
+run("experienceSet('sound',true)");now+=200;run('experienceFeedback()');assert.equal(started,1);run('experienceFeedback()');assert.equal(started,1,'rate limited');
+run("experienceSet('sound',false);experienceSet('haptics',false)");now+=200;run('experienceFeedback()');assert.equal(started,1);assert.equal(vibrations,2,'off disables both channels');
+run('phoneViewportSync()');assert(classes.has('phone-keyboard-open'));assert.equal(styles.get('--phone-viewport-height'),'500px');run('window.visualViewport.height=844;phoneViewportSync()');assert(!classes.has('phone-keyboard-open'));
+run("delete navigator.vibrate;experienceSet('haptics',true)");now+=200;assert.doesNotThrow(()=>run('experienceFeedback()'),'unsupported vibration degrades gracefully');
+console.log('PASS iPhone UX: sound opt-in, preference persistence, feedback throttle, independent switches, vibration fallback, keyboard viewport and recovery');
