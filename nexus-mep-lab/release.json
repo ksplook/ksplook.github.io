@@ -1,12 +1,12 @@
 {
-  "version": "4.0.1",
-  "sourceCommit": "a8f5b6fd9b2cecc846afafbee40e8c0d674da757",
+  "version": "4.0.2",
+  "sourceCommit": "0ab4b086e4251d5ae5aec55b52460eb8fdf254f1",
   "reviewedAt": "2026-10-18",
   "scope": "Previously public demonstration data retained; UI/workflow updates manually reviewed; no user localStorage, credentials or source PDFs copied.",
   "files": {
-    "index.html": "902e5b79f0148dfae20fe3aa8d1e798e12b9665dec744e35ee776300d3c8c9dd",
-    "sw.js": "e91fb8214e8003382f3bdd13c78ca3627c85cc0cbb6641fc7396d8ffdd6ce0ac",
-    "manifest.webmanifest": "99e9faebae8225f60577402ec79ad34884e6ca1dc509a4a0713a5943ee5e1df3",
+    "index.html": "24032d72f028cdfbb99a4c30de694da24610f5a87977de57dac9b3e0489f5398",
+    "sw.js": "e61993cb73b5eff2052de4ab64b782093cc41d65c3a6bca9fdd8aacbe23bede5",
+    "manifest.webmanifest": "805c8bd08cda0416a11899c753c053c0e40dc7f75712b6ddf3211283e105d8a6",
     "icon.svg": "2a03d872ca2ec56fb32a13b8a375ce18a7174d29d56ef744ee74e4a018787242"
   }
 }

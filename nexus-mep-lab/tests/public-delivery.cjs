@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),{webcrypto}=require('node:crypto'),path=require('node:path');
-const root=path.resolve(__dirname,'..'),release='v4.0.1';
+const root=path.resolve(__dirname,'..'),release='v4.0.2';
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 const source=html.match(/<script>([\s\S]*)<\/script>/)[1].replace(/renderShell\(\);renderPage\(\);(?=\r?\n\/\/ When)/,'');
 const storage=new Map(),element={addEventListener(){},classList:{remove(){}}};
