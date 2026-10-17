@@ -4,9 +4,9 @@
   "reviewedAt": "2026-10-18",
   "scope": "Previously public demonstration data retained; UI/workflow updates manually reviewed; no user localStorage, credentials or source PDFs copied.",
   "files": {
-    "index.html": "fadef5b147f8c0f9e25f7b3477445087f6a5986bb3ab121c181a78f88f4d8727",
-    "sw.js": "b3b2c50ddf841d318a8c20c5c4754d871bf6c09771f9b9f48ebe8b3bb0bf1a8b",
-    "manifest.webmanifest": "a5194bbf4a0bdf0ff6cad5af0a1ee3dcfc9891caf3770c2c1ba6a8f531dcf457",
-    "icon.svg": "be785f6df20b0981695107b11f858b5d6eac97620dee72090ead7f2c9f05654d"
+    "index.html": "19a58d05d41a48976537c7d2bd8eba3c4716641fe7f33ac8a36ebf2f5e06fdea",
+    "sw.js": "d27cd6526af953d1d8ad037bdf8abc0bc0c7577dadf9803faf1b5cd20982b9f0",
+    "manifest.webmanifest": "27aef6941bf2a407664b44d709d7047756aad915aed064fc66c35224e710e96d",
+    "icon.svg": "2a03d872ca2ec56fb32a13b8a375ce18a7174d29d56ef744ee74e4a018787242"
   }
 }
