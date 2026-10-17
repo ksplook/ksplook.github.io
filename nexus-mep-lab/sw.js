@@ -1,15 +1,26 @@
 // NEXUS MEP LAB 2.0.0 - shared offline runtime for desktop and mobile.
 // Cache each navigation under its own URL, never replace the main workspace
 // with the Room CFD page when switching between tools.
-const CACHE_NAME='nexus-personal-lab-2.0.0-unified2';
+const CACHE_NAME='nexus-personal-lab-2.0.0-unified3';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg'];
+const OPTIONAL_WORKSPACES=['./room-cfd/index.html']; // Only present on the public unified site.
 const isManagedUrl=url=>{
  const scope=new URL(self.registration.scope);
  return url.origin===scope.origin&&url.pathname.startsWith(scope.pathname);
 };
 const navigationKey=url=>url.origin+url.pathname; // Ignore query parameters, not the page path.
 self.addEventListener('install',event=>{
- event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));
+ event.waitUntil((async()=>{
+  const cache=await caches.open(CACHE_NAME);
+  await cache.addAll(CORE);
+  // Cache the CFD workbench when present. A missing optional route must never
+  // prevent the single-file/private PWA from installing.
+  await Promise.all(OPTIONAL_WORKSPACES.map(async relative=>{
+   const url=new URL(relative,self.registration.scope).href;
+   try{const response=await fetch(url);if(response.ok)await cache.put(url,response.clone());}catch{}
+  }));
+  await self.skipWaiting();
+ })());
 });
 self.addEventListener('activate',event=>{
  event.waitUntil(Promise.all([
