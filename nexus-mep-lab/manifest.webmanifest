@@ -1,7 +1,7 @@
 {
-  "name": "NEXUS MEP LAB · 个人工程实验室",
+  "name": "NEXUS MEP LAB · 全功能机电工作台",
   "short_name": "NEXUS MEP",
-  "description": "单人离线机电公式反算与工程学习工作台",
+  "description": "完整离线机电计算、CFD 前处理、模块化 POD、BOM、供应商价格与造价初算",
   "lang": "zh-CN",
   "id": "./",
   "start_url": "./index.html",
@@ -16,6 +16,20 @@
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "机房 CFD 与 POD 布局",
+      "short_name": "机房 CFD",
+      "url": "./room-cfd/index.html?view=roomcfd",
+      "icons": [
+        {
+          "src": "./icon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     }
   ]
 }
