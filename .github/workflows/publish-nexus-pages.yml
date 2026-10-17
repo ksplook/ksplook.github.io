@@ -1,0 +1,46 @@
+name: Publish NEXUS MEP LAB demo to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'nexus-mep-lab/**'
+      - '.github/workflows/publish-nexus-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy existing homepage and NEXUS public demo
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out public site
+        uses: actions/checkout@v4
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Stage existing homepage and sanitized public demo
+        run: |
+          mkdir -p _site
+          cp -a index.html app.js img LICENSE nexus-mep-lab _site/
+          touch _site/.nojekyll
+          test -s _site/index.html
+          test -s _site/nexus-mep-lab/index.html
+          test -s _site/nexus-mep-lab/sw.js
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Publish on HTTPS
+        id: deployment
+        uses: actions/deploy-pages@v4
