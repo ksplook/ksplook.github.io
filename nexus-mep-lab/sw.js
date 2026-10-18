@@ -1,8 +1,8 @@
-// NEXUS MEP LAB 4.0.4 - shared offline runtime for desktop and mobile.
+// NEXUS MEP LAB 4.0.5 - shared offline runtime for desktop and mobile.
 // Cache each navigation under its own URL, never replace the main workspace
 // with the Room CFD page when switching between tools.
-const CACHE_NAME='nexus-personal-lab-4.0.4-public1';
-const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg'];
+const CACHE_NAME='nexus-personal-lab-4.0.5-public1';
+const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg','./icon-180.png','./icon-512.png'];
 const OPTIONAL_WORKSPACES=['./room-cfd/index.html']; // Only present on the public unified site.
 const isManagedUrl=url=>{
  const scope=new URL(self.registration.scope);
@@ -36,7 +36,7 @@ self.addEventListener('fetch',event=>{
   event.respondWith((async()=>{
    const key=navigationKey(url);
    try{
-    const response=await fetch(event.request);
+    const response=await fetch(event.request,{cache:'no-store'});
     if(!response.ok)throw Error('HTTP '+response.status);
     const cache=await caches.open(CACHE_NAME);
     await cache.put(key,response.clone()); // Each route has its own offline snapshot.

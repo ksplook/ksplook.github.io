@@ -1,5 +1,5 @@
 {
-  "name": "NEXUS MEP LAB 4.0.4 · 全功能机电工作台",
+  "name": "NEXUS MEP LAB 4.0.5 · 全功能机电工作台",
   "short_name": "NEXUS MEP",
   "description": "完整离线机电计算、CFD 前处理、模块化 POD、BOM、供应商价格与造价初算",
   "lang": "zh-CN",
@@ -8,13 +8,25 @@
   "scope": "./",
   "display": "standalone",
   "background_color": "#f3f6fb",
-  "theme_color": "#174f8c",
+  "theme_color": "#f6f8fb",
   "orientation": "any",
   "icons": [
     {
-      "src": "./icon.svg",
+      "src": "./icon.svg?v=4.0.5",
       "sizes": "any",
       "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-180.png?v=4.0.5",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png?v=4.0.5",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any"
     }
   ],
