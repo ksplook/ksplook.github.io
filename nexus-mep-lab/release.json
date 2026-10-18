@@ -1,12 +1,12 @@
 {
-  "version": "4.0.5",
-  "sourceCommit": "a5431672b99f8ed11d674435ea3a440680b51f37",
+  "version": "4.0.6",
+  "sourceCommit": "43eb5aceb31ed7e21e01739323724ad4a2c6cabc",
   "reviewedAt": "2026-10-18",
   "scope": "Previously public demonstration data retained; UI/workflow updates manually reviewed; no user localStorage, credentials or source PDFs copied.",
   "files": {
-    "index.html": "908c921126ac4430ef561b97b0cb291d2075b9b0a6b749dfe2949d5a0ca1edf0",
-    "sw.js": "6609254e67e2a93654a802ef2f0f8d53d333e91671cedd29f231fae10d1c6bdc",
-    "manifest.webmanifest": "af6d1165a4d798b0ed24f2e04d210a0b54a83e305a27a9977548055d8a90fa40",
+    "index.html": "52751434b91901f6eb4e94c5da4a2ea7c2e06aeeef072ec9e41d53b80e9bf0c6",
+    "sw.js": "0722677a2ab9e61c4be630073faaf785025086afd8438e62d068252abc193128",
+    "manifest.webmanifest": "dc9058b2a2defb36c2eb83aa4d2f75d249e79f12f6f44dbd8d0c2e512cb2c5bd",
     "icon.svg": "661b389c5259ba92659ebff0965f7688172098396a82c3d97e3ffd572ed00c01",
     "icon-180.png": "0f9f64f0dc36fe1dab0619a3f1da71d389dc16bdfcdfe71b9625c908919b6c87",
     "icon-512.png": "76dce9551772cc3609aa32b2530cac111639b1b208daeb2206359e9c75034e91"
