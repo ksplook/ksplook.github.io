@@ -30,13 +30,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verify public 4.0 calculations and project recovery
+      - name: Verify public 4.4 calculations and project recovery
         run: |
           node nexus-mep-lab/tests/public-delivery.cjs
           node nexus-mep-lab/tests/iphone-ux.cjs
           node nexus-mep-lab/tests/mobile-inspector.cjs
           node nexus-mep-lab/tests/module-swipe.cjs
           node nexus-mep-lab/tests/scroll-motion.cjs
+          node nexus-mep-lab/tests/building-integration.cjs
+          node nexus-mep-lab/tests/shared-project.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Stage existing homepage and sanitized public demo

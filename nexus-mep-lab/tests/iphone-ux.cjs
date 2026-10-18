@@ -1,5 +1,5 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
-const release='v4.0.6',html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+const release='v4.4.0',html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
 let now=1000,audioCount=0,started=0,vibrations=0;const prefs=new Map(),classes=new Set(),styles=new Map();
 const param={setValueAtTime(){},exponentialRampToValueAtTime(){}};
 const c=vm.createContext({phoneInspectorKeepInputVisible(){},Date:{now:()=>now},localStorage:{getItem:k=>prefs.get(k)||null,setItem:(k,v)=>prefs.set(k,v)},navigator:{vibrate(){vibrations++}},window:{innerHeight:844,matchMedia:()=>({matches:true}),visualViewport:{height:500,offsetTop:0,addEventListener(){}},addEventListener(){},AudioContext:class{constructor(){audioCount++;this.state='running';this.currentTime=0;this.destination={}}createOscillator(){return{frequency:param,connect(){},start(){started++},stop(){},disconnect(){}}}createGain(){return {gain:param,connect(){},disconnect(){}}}}},document:{hidden:false,querySelectorAll(){return []},getElementById(){return null},activeElement:{matches:()=>true},documentElement:{style:{setProperty:(k,v)=>styles.set(k,v)}},body:{classList:{remove:k=>classes.delete(k),toggle:(k,v)=>v?classes.add(k):classes.delete(k)}},addEventListener(){}},toast(){}});

@@ -1,0 +1,26 @@
+'use strict';
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),{webcrypto}=require('node:crypto'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),release='v4.4.0';
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const source=html.match(/<script>([\s\S]*)<\/script>/)[1].replace(/renderShell\(\);renderPage\(\);(?=\r?\n\/\/ When)/,'');
+const storage=new Map(),element={addEventListener(){},classList:{remove(){}}};
+const ctx=vm.createContext({console,crypto:webcrypto,TextEncoder,TextDecoder,Uint8Array,Uint32Array,DataView,ArrayBuffer,Blob,URL,setTimeout(){},document:{getElementById(){return element},addEventListener(){},querySelector(){return null},createElement(){return {className:'',textContent:'',remove(){}}},body:{appendChild(){}}},localStorage:{getItem:k=>storage.get(k)??null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)},navigator:{},window:{},confirm:()=>true});
+const run=code=>vm.runInContext(code,ctx,{timeout:15000});
+vm.runInContext(source,ctx,{timeout:15000});
+(async()=>{
+run("buildingState={...buildingDefaults(),enabled:true,scheme:'steel',length:40};buildingState.saved=[{id:'A',title:'建筑A',state:{...buildingState,saved:[]}}]");
+assert(run("moduleCatalogPage('arch-')").includes('arch-compare'));assert.equal((run("moduleCatalogPage('hvac-')").match(/class=\"module-catalog-card\"/g)||[]).length,12);
+const before=run('JSON.stringify(captureProjectData())');const bundle=await run('makePortable(workspaceIndex.projects[0],captureProjectData())');const unpacked=await run('unpackPortable('+JSON.stringify(bundle)+',validateConfig)');run('buildingState=buildingDefaults();applyProjectData('+JSON.stringify(unpacked.data)+')');assert.equal(run('JSON.stringify(captureProjectData())'),before);
+run("const legacy=captureProjectData();delete legacy.building;applyProjectData(legacy)");assert.equal(run('buildingState.enabled'),false);run('applyProjectData('+JSON.stringify(unpacked.data)+')');
+for(const id of ['arch-area','arch-load','arch-cost','arch-compare','catalog-arch'])assert(run('active='+JSON.stringify(id)+';page()').length>100);
+const frozen=await run('freezePayload(makePayload(snapshotInput()),[])');assert.equal(frozen.payload.building.length,40);run('buildingState.length=99');const book=run('frozenBook('+JSON.stringify(frozen)+')');assert(JSON.stringify(book.chapters.find(x=>x.id==='building')).includes('40'));assert(!JSON.stringify(book.chapters.find(x=>x.id==='building')).includes('"length":99'));
+assert(run('reportBook().chapters.some(x=>x.id==="building")'));const bytes=run('buildDocxBytes(reportBook())');assert(bytes.byteLength>1000);assert.equal(bytes[0],80);
+assert(run('renderCalculationBookHTML(reportBook())').includes('建筑空间'));
+const beforeBad=run('JSON.stringify(captureProjectData())');assert.throws(()=>run('applyProjectData({...captureProjectData(),building:{...buildingState,length:-1}})'));assert.equal(run('JSON.stringify(captureProjectData())'),beforeBad);
+run('const fresh=blankProjectData()');assert.equal(run('fresh.building.saved.length'),0);assert.equal(run('fresh.building.length'),30);
+run("download=(filename,content,mime)=>{globalThis.archDownload={filename,content,mime}};renderPage=()=>{};buildingAction('csv')");assert(run('archDownload.content.includes("整包已含")'));run("buildingAction('report')");assert(run('archDownload.content.includes("建筑空间与工程量初算计算书")'));assert(!run('archDownload.content.includes("冷量</small>")'));
+run("buildingAction('word')");assert(run('archDownload.content.byteLength>1000'));
+run("buildingAction('save')");assert.equal(run('buildingState.saved.length'),2);run("buildingLastRemoved=buildingState.saved.pop();buildingAction('undo-delete')");assert.equal(run('buildingState.saved.length'),2);
+run("var rebuilds=0,updates=0;renderPage=()=>{rebuilds++};refreshView=()=>{updates++};const buildingEl={dataset:{buildingField:'length'},tagName:'INPUT',type:'text',value:'31.5',setCustomValidity(){},setAttribute(){},removeAttribute(){},reportValidity(){}};buildingHandleChange(buildingEl)");assert.equal(run('buildingState.length'),31.5);assert.equal(run('rebuilds'),0,'blur must not replace the button being clicked');assert.equal(run('updates'),1);
+console.log('PASS building integration: all routes, legacy defaults, independent projects, backup restore, invalid import rollback, frozen inputs, actual HTML/Word reports');
+})().catch(e=>{console.error(e);process.exitCode=1});

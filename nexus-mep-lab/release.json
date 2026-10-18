@@ -1,12 +1,13 @@
 {
-  "version": "4.0.6",
-  "sourceCommit": "43eb5aceb31ed7e21e01739323724ad4a2c6cabc",
+  "version": "4.4.0",
+  "sourceCommit": "0b6b8950c5d40a4f1699abb9cec95327f022f226",
   "reviewedAt": "2026-10-18",
-  "scope": "Previously public demonstration data retained; UI/workflow updates manually reviewed; no user localStorage, credentials or source PDFs copied.",
+  "scope": "Reviewed against already-public 4.0.6: new ARCH concept formulas, defaults, UI and project plumbing; existing published demonstration records retained. No browser project data, credentials, original private documents or device test entries copied. Main and CFD use the same updated project schema.",
   "files": {
-    "index.html": "52751434b91901f6eb4e94c5da4a2ea7c2e06aeeef072ec9e41d53b80e9bf0c6",
-    "sw.js": "0722677a2ab9e61c4be630073faaf785025086afd8438e62d068252abc193128",
-    "manifest.webmanifest": "dc9058b2a2defb36c2eb83aa4d2f75d249e79f12f6f44dbd8d0c2e512cb2c5bd",
+    "index.html": "66a60d0669944c8a7e82c8eb6e58e23eda49bae5929c2a2c89185569119c3976",
+    "room-cfd/index.html": "db57a56ad582e1c31ceceb3a22b9ea162630ead1a769978824af08d09f73c932",
+    "sw.js": "3e3ec17ff5a86b07f0591fc249fbcc299655897a035ccfcda66c0e9a5c6f8b6d",
+    "manifest.webmanifest": "3de5b101e82001f576649d26be608848da0aae59da0c09b66f98e00eb23828e4",
     "icon.svg": "661b389c5259ba92659ebff0965f7688172098396a82c3d97e3ffd572ed00c01",
     "icon-180.png": "0f9f64f0dc36fe1dab0619a3f1da71d389dc16bdfcdfe71b9625c908919b6c87",
     "icon-512.png": "76dce9551772cc3609aa32b2530cac111639b1b208daeb2206359e9c75034e91"

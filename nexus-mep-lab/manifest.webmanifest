@@ -1,7 +1,7 @@
 {
   "name": "NEXUS MEP LAB 4.0.6 · 全功能机电工作台",
   "short_name": "NEXUS MEP",
-  "description": "完整离线机电计算、CFD 前处理、模块化 POD、BOM、供应商价格与造价初算",
+  "description": "NEXUS MEP LAB 4.4.0：建筑、暖通、电气与工程工作流统一公开演示",
   "lang": "zh-CN",
   "id": "./",
   "start_url": "./index.html",

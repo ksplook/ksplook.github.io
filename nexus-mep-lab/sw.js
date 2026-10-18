@@ -1,7 +1,7 @@
-// NEXUS MEP LAB 4.0.6 - shared offline runtime for desktop and mobile.
+// NEXUS MEP LAB 4.4.0 - shared offline runtime for desktop and mobile.
 // Cache each navigation under its own URL, never replace the main workspace
 // with the Room CFD page when switching between tools.
-const CACHE_NAME='nexus-personal-lab-4.0.6-public1';
+const CACHE_NAME='nexus-personal-lab-4.4.0-public1';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg','./icon-180.png','./icon-512.png'];
 const OPTIONAL_WORKSPACES=['./room-cfd/index.html']; // Only present on the public unified site.
 const isManagedUrl=url=>{
